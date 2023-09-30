@@ -1,0 +1,59 @@
+/* PaymentEntry.css */
+
+/* Container styles */
+.payment-container{
+    color: #000;
+}
+.payment-customer{
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  .payment-shipping{
+   
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .payment-info{
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  /* Section heading styles */
+  .section-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Input field styles */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  
+.payment-container input[type="text"] {
+  background-color: #fff;
+}
+
+.payment-container h1 {
+  font-size: 20; 
+}
+
+.payment-container h2 {
+  font-size: 16px;
+}
