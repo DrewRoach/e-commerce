@@ -30,11 +30,11 @@ export const CartContextProvider = (props: any) => {
     setCart((curr) => ({ ...curr, [id]: curr[id as keyof typeof curr] - 1 }));
   };
 
-  const handleIncreaseCart = (id: number) => {
-    setCart((curr) => ({ ...curr, [id]: curr[id as keyof typeof curr] - 1 }));
+  const handleDelete = (id: number) => {
+    setCart((curr) => ({ ...curr, [id]: 0 }));
   };
 
-  const context = { cart, handleAddToCart, handleRemove, handleIncreaseCart };
+  const context = { cart, handleAddToCart, handleRemove, handleDelete };
   return (
     <CartContext.Provider value={context}>
       {props.children}
