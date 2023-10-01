@@ -1,23 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Button } from "./button";
 import ProductType from "../utils/types";
-import { CartDispatchContex } from "../utils/cartcontext";
-
+import { CartContext } from "../utils/cartcontext";
 export const Product = (data: ProductType) => {
   const { id, name, price } = data;
   const [count, setCount] = useState(0);
-  const [cart, setCart] = useState({});
-  const dispatch = useContext(CartDispatchContex)
   const handleAdd = () => {
     setCount(count + 1);
   };
-
-  const addToCart = () => {
-    dispatch({
-      type:'ADD',
-      item: {...data, quantity: count}
-    })
-  };
+  const {handleAddToCart} = useContext(CartContext)
   return (
     <div>
       <p>{id}</p>
@@ -26,7 +17,13 @@ export const Product = (data: ProductType) => {
       <>
         <div>
           <Button height={50} width={50} text="+" onClick={handleAdd} />
-          <p>{count}</p>
+          <input
+            type="number"
+            value={count}
+            onChange={(e) => {
+              setCount(e.target.value);
+            }}
+          />
           <button
             style={{ height: 50, width: 50 }}
             disabled={count == 0}
@@ -38,7 +35,7 @@ export const Product = (data: ProductType) => {
           </button>
         </div>
         <div>
-          <button disabled={count === 0} onClick={addToCart}>
+          <button disabled={count === 0} onClick={()=>handleAddToCart!(id, count)}>
             Add to cart
           </button>
         </div>
