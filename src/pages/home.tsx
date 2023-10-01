@@ -9,12 +9,11 @@ const Home = () => {
     <>
       {PRODUCTS.map((product) => {
         return (
-          <>
+          <div style={{display:"flex", justifyContent:"center"}}>
             <Product {...product} />
-          </>
+          </div>
         );
       })}
-      
     </>
   );
 };

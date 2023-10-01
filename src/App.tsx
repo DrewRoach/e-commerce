@@ -4,6 +4,7 @@ import { Navbar } from "./components/navbar";
 import Home from "./pages/home";
 import { Cart } from "./pages/cart";
 import { CartContextProvider } from "./utils/cartcontext";
+import PaymentEntry from "./paymentEntry";
 export const App = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/information" element={<PaymentEntry/>}/>
           </Routes>
         </BrowserRouter>
     </div>
