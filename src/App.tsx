@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import { Cart } from "./pages/cart";
 import { CartContextProvider } from "./utils/cartcontext";
 import PaymentEntry from "./paymentEntry";
+import ViewOrder from "./viewOrder";
 export const App = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ export const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/information" element={<PaymentEntry/>}/>
+            <Route path="/review" element={<ViewOrder/>}/>
           </Routes>
         </BrowserRouter>
     </div>

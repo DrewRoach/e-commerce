@@ -25,11 +25,12 @@ const PaymentEntry = () => {
 
 //once routes are set up will uncomment
   
-// const navigate = useNavigate();
+const navigate = useNavigate();
 
-// // const handleSubmit = () => {
-// //     navigate('/purchase/viewConfirmation', {state: {order}});
-// // }
+const handleSubmit = () => {
+  // alert(order.card_holder_name)
+  navigate('/review', {state: {order}});
+}
 
   return (
     <div className = "payment-container">
@@ -158,7 +159,7 @@ const PaymentEntry = () => {
         />
         <br></br>
         <br></br>
-        {/* <button className= "button" onClick={handleSubmit}> Pay</button> */}
+        <button className= "button" onClick={handleSubmit}> Pay</button>
       </div>
     </div>
   );
