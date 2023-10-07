@@ -1,20 +1,15 @@
-import { useState, useReducer, useContext } from "react";
 import { PRODUCTS } from "../utils/products";
 import { Product } from "../components/product";
-import ProductType from "../utils/types";
-import { CartContext } from "../utils/cartcontext";
 const Home = () => {
-  const { cart } = useContext(CartContext);
   return (
-    <>
+    <div className="productContainer">
+      <h1 style={{gridColumn:"1/4", textAlign:"center"}}>Products</h1>
       {PRODUCTS.map((product) => {
         return (
-          <div style={{display:"flex", justifyContent:"center"}}>
             <Product {...product} />
-          </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

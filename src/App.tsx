@@ -1,9 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
 import { Navbar } from "./components/navbar";
 import Home from "./pages/home";
 import { Cart } from "./pages/cart";
-import { CartContextProvider } from "./utils/cartcontext";
 import PaymentEntry from "./paymentEntry";
 export const App = () => {
   return (

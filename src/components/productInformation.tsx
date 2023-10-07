@@ -1,12 +1,13 @@
-import React from "react";
+
 import ProductType from "../utils/types";
 
 //cart[key] < number * products.price.
 export const ProductInformation = (data: ProductType) => {
-  const { id, name, price } = data;
+  const { name, price, img } = data;
   return (
-    <div>
+    <div className="productInfo">
       <p>{name}</p>
+      <img src={img} className="productImage"></img>
       <p>Price: {price}</p>
     </div>
   );
