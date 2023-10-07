@@ -1,37 +1,45 @@
 import { createContext, useState } from "react";
 
+
 interface cartContext {
-  cart: object;
+  cart: number[];
   handleAddToCart?(id: number, quantity: number): void;
   handleRemove?(id: number): void;
   handleIncreaseCart?(id:number):void
 }
-const initialCart = {
-  1: 0,
-  2: 0,
-  3: 0,
-  4: 0,
-  5: 0,
-};
+
+const initCart = [0,0,0,0,0];
 
 export const CartContext = createContext<cartContext>({ cart: {} });
 export const CartContextProvider = (props: any) => {
-  const [cart, setCart] = useState(initialCart);
+  const [cart, setCart] = useState(initCart);
 
   const handleAddToCart = (id: number, quantity: number) => {
-    setCart((curr) => ({
-      ...curr,
-      [id]: curr[id as keyof typeof curr] + quantity,
-    }));
+    const updatedCart = cart.map((c:number,i:number)=>{
+      if(i === id){
+        return c + quantity
+      }else return c
+    })
+    setCart(updatedCart);
     console.log(JSON.stringify(cart));
   };
 
   const handleRemove = (id: number) => {
-    setCart((curr) => ({ ...curr, [id]: curr[id as keyof typeof curr] - 1 }));
+    const updatedCart = cart.map((c:number,i:number)=>{
+      if(i === id){
+        return c -1;
+      }else return c
+    })
+    setCart(updatedCart);
   };
 
   const handleDelete = (id: number) => {
-    setCart((curr) => ({ ...curr, [id]: 0 }));
+    const updatedCart = cart.map((c:number,i:number)=>{
+      if(i === id){
+        return c = 0
+      }else return c
+    })
+    setCart(updatedCart);
   };
 
   const context = { cart, handleAddToCart, handleRemove, handleDelete };

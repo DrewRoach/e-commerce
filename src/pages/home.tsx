@@ -1,14 +1,8 @@
-import { useState, useReducer, useContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PRODUCTS } from "../utils/products";
 import { Product } from "../components/product";
-import ProductType from "../utils/types";
-import { CartContext } from "../utils/cartcontext";
 const Home = () => {
-  const { cart } = useContext(CartContext);
   return (
-    <>
-     <div className="home-page">
+    <div className="home-page">
       <header className="header">
         <div className="header-content">
           <h1>Welcome to Eous</h1>
@@ -56,15 +50,15 @@ const Home = () => {
           Welcome to a world of crystal-clear vision!
         </p>
       </section>
-    </div>
+    <div className="productContainer">
+      <h1 style={{gridColumn:"1/4", textAlign:"center"}}>Products</h1>
       {PRODUCTS.map((product) => {
         return (
-          <div style={{display:"flex", justifyContent:"center"}}>
             <Product {...product} />
-          </div>
         );
       })}
-    </>
+    </div>
+    </div>
   );
 };
 

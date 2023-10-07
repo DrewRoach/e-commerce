@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import "./paymentEntry.css";
 import {useNavigate} from 'react-router-dom'
@@ -6,7 +5,7 @@ import {useNavigate} from 'react-router-dom'
 //import {Purchase, order} from './purchase.tsx'
 
 const PaymentEntry = () => {
-  const [order]= useState({
+  const [order] = useState({
     phone_number: "",
     credit_card_number: 0,
     expir_date: "",
@@ -33,7 +32,7 @@ const handleSubmit = () => {
 }
 
   return (
-    <div className = "payment-container">
+    <div className="payment-container">
       <div className="payment-customer">
         <h1> Customer Information</h1>
         <h2>First and Last Name </h2>

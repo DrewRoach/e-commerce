@@ -1,32 +1,29 @@
-import React, { useContext, useState } from "react";
+import  {useContext} from "react";
 import { CartContext } from "../utils/cartcontext";
-import { Product } from "../components/product";
 import { PRODUCTS } from "../utils/products";
 import { ProductInformation } from "../components/productInformation";
 import { Link } from "react-router-dom";
 export const Cart = () => {
   const { cart, handleRemove, handleAddToCart, handleDelete} = useContext(CartContext);
-  const displayCart = () => {};
-  const [totalPrice, setTotalPrice]= useState(0)
   let tP = 0
   return (
     <>
     <h1>Shopping Cart</h1>
       <ul>
-        {Object.keys(cart).map((key) => {
-          let price = PRODUCTS[key-1].price * cart[key]
+        {cart.map((value, index) => {
+          let price = PRODUCTS[index].price * cart[index]
           tP+=price
           return (
             <>
-              {cart[key as keyof typeof cart] !== 0 && (
+              {cart[index] !== 0 && (
                 <div style={{borderBottomColor: "black", borderBottomWidth:10}}>
-                  <ProductInformation {...PRODUCTS[key - 1]} />
-                  <p>Quantity: {cart[key]}</p>
+                  <ProductInformation {...PRODUCTS[index]} />
+                  <p>Quantity: {cart[index]}</p>
                   <p>Total: {price}</p>
-                  <button onClick={()=>handleAddToCart!(key, 1)}>+</button>
-                  <button onClick={()=>handleRemove!(key)}>-</button>
+                  <button onClick={()=>handleAddToCart!(index, 1)}>+</button>
+                  <button onClick={()=>handleRemove!(index)}>-</button>
                   <br/>
-                  <button onClick={()=>handleDelete(key)}>remove</button>
+                  <button onClick={()=>handleDelete(index)}>remove</button>
                 </div>
               )}
             </>
