@@ -9,9 +9,15 @@
     text-align: center;
 }
 
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .quantityContainer{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-shrink: 3;
 }
 
@@ -20,3 +26,36 @@
     height: auto;
 }
 
+.cartButton{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cartItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    margin-bottom: 20px;
+   
+}
+
+.cartItem img{
+    width: 20%;
+}
+
+.cartList{
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+.addRemoveButtons{
+    display: flex;
+}

@@ -29,5 +29,11 @@ export const PRODUCTS = [
         name: "grilled cheese",
         price: 10000,
         img: url,
+    },
+    {
+        id: 6,
+        name: "Glasses",
+        price: 500,
+        img: url
     }
 ]

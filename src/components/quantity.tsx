@@ -12,6 +12,7 @@ export const Quantity = (props:any) => {
         onChange={(e) => {
           setCount(e.target.value);
         }}
+        style={{textAlign:"center", width:"50%"}}
       />
       <button
         style={{ height: 50, width: 50 }}
