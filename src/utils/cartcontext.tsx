@@ -6,11 +6,12 @@ interface cartContext {
   handleAddToCart?(id: number, quantity: number): void;
   handleRemove?(id: number): void;
   handleIncreaseCart?(id:number):void
+  handleDelete?(id: number): void
 }
 
-const initCart = [0,0,0,0,0];
+const initCart = [0,0,0,0,0,0];
 
-export const CartContext = createContext<cartContext>({ cart: {} });
+export const CartContext = createContext<cartContext>({ cart: [] });
 export const CartContextProvider = (props: any) => {
   const [cart, setCart] = useState(initCart);
 

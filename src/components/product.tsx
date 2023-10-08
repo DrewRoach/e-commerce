@@ -12,14 +12,15 @@ export const Product = (data: ProductType) => {
       <ProductInformation {...data} />
       <>
         <Quantity count={count} setCount={setCount} />
-        <div className="">
+        <>
           <button
             disabled={count === 0}
             onClick={() => handleAddToCart!(id-1, count)}
+            className="cartButton"
           >
             Add to cart
           </button>
-        </div>
+        </>
       </>
     </div>
   );
