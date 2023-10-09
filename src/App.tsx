@@ -14,7 +14,7 @@ export const App = () => {
     <div>
         <BrowserRouter>
           <Header></Header>
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />

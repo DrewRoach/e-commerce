@@ -1,6 +1,6 @@
 import React from 'react';
-import './footer.css'
-import {useNavigate} from 'react-router-dom'
+import './footer.css';
+import {useNavigate} from 'react-router-dom';
 
 const Footer: React.FC = () => {
 
