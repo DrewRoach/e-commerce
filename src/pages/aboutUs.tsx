@@ -1,6 +1,7 @@
 import React from "react";
 import LohithImage from "../assets/Lohith.jpg";
 import DrewImage from "../assets/IMG_6532.jpeg";
+import RonitImage from "../assets/20231008_232814.jpg"
 
 const teamMembers = [
   {
@@ -18,11 +19,11 @@ const teamMembers = [
       "Drew Arocha is our Chief Technology Officer. He is a senior at Ohio State University majoring in computer science.  He oversees the technical aspects of our projects.",
   },
   {
-    name: "Jane Smith",
-    title: "CTO",
-    image: "/jane-smith.jpg", // Replace with the actual image path
+    name: "Ronit Jain",
+    title: "COO",
+    image: RonitImage, 
     description:
-      "Jane Smith is our Chief Technology Officer. She oversees the technical aspects of our projects.",
+      "Ronit Jain is a senior at the Ohio State University majoring in Computer Science and Engineering. He serves as our COO and oversees day-to-day tasks and operations. In his free time, he enjoys playing the piano, or competing in chess and esports",
   },
   // Add more team members here with unique information
 ];
