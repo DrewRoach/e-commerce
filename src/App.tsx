@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";
 import Home from "./pages/home";
+import Header from "./components/header"
 import Footer from "./components/footer"
 import { Cart } from "./pages/cart";
 import PaymentEntry from "./paymentEntry";
@@ -12,6 +13,7 @@ export const App = () => {
   return (
     <div>
         <BrowserRouter>
+          <Header></Header>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
