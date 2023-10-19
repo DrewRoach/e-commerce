@@ -1,6 +1,20 @@
-import { PRODUCTS } from "../utils/products";
+import { useEffect, useState } from "react";
 import { Product } from "../components/product";
+import ProductType from "../utils/types";
+import axios from 'axios';
 const Home = () => {
+  const [products, setProducts] = useState<ProductType[] | []>([])
+
+  //fetching all the products
+  useEffect(() => {
+    axios.get<ProductType[]>('http://127.0.0.1:8000/items/').then((resp)=>{
+      console.log(resp.data);
+      setProducts(resp.data);
+    })
+    
+  },[])
+  console.log(products)
+  
   return (
     <div className="home-page">
       <header className="header">
@@ -52,11 +66,9 @@ const Home = () => {
       </section>
     <div className="productContainer">
       <h1 style={{gridColumn:"1/4", textAlign:"center"}}>Products</h1>
-      {PRODUCTS.map((product) => {
-        return (
-            <Product {...product} />
-        );
-      })}
+      {products.map(product => {return(
+        <Product {...product}/>
+      )})}
     </div>
     </div>
   );

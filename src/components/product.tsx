@@ -4,7 +4,6 @@ import { CartContext } from "../utils/cartcontext";
 import { ProductInformation } from "./productInformation";
 import { Quantity } from "./quantity";
 export const Product = (data: ProductType) => {
-  const { id} = data;
   const [count, setCount] = useState(0);
   const { handleAddToCart } = useContext(CartContext);
   return (
@@ -15,11 +14,12 @@ export const Product = (data: ProductType) => {
         <>
           <button
             disabled={count === 0}
-            onClick={() => handleAddToCart!(id-1, count)}
+            onClick={() => handleAddToCart!(data, count)}
             className="cartButton"
           >
             Add to cart
           </button>
+
         </>
       </>
     </div>
