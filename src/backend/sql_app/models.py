@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 
 from .database import Base
 
+# Item Model
 class Item(Base):
     __tablename__ = "items"
 
@@ -12,6 +13,7 @@ class Item(Base):
     quantity = Column(Integer, index=False)
     price = Column(Float, index=False)
 
+# Shipping Model
 class ShippingInfo(Base):
     __tablename__ = "shipping"
 
