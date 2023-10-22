@@ -11,7 +11,8 @@ const PaymentEntry = () => {
     expir_date: "",
     cvc: 0,
     card_postal: 0,
-    card_holder_name: "",
+    first_name: "",
+    last_name: "",
     card_holder_first_name: "",
     card_holder_last_name: "",
     address_1: "",
@@ -35,12 +36,20 @@ const handleSubmit = () => {
     <div className="payment-container">
       <div className="payment-customer">
         <h1> Customer Information</h1>
-        <h2>First and Last Name </h2>
+        <h2>First Name</h2>
         <input
           type="text"
           required
           onChange={(e) => {
-            order.card_holder_name = e.target.value;
+            order.first_name = e.target.value;
+          }}
+        />
+        <h2>Last Name</h2>
+        <input
+          type="text"
+          required
+          onChange={(e) => {
+            order.last_name = e.target.value;
           }}
         />
         <h2>Email</h2>
