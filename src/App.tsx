@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/navbar";
+// import { Navbar } from "./components/navbar";
 import Home from "./pages/home";
 import Header from "./components/header"
 import Footer from "./components/footer"
@@ -9,6 +9,7 @@ import ViewOrder from "./viewOrder";
 import Confirm from "./confirmation";
 import MyHead from './components/footerHead';
 import AboutUs from "./pages/aboutUs";
+import ContactUs from "./pages/contactUs";
 export const App = () => {
   return (
     <div>
@@ -22,6 +23,7 @@ export const App = () => {
             <Route path="/review" element={<ViewOrder/>}/>
             <Route path="/confirm" element={<Confirm/>}/>
             <Route path="/about" element={<AboutUs/>}/>
+            <Route path="/contact" element={<ContactUs/>}/>
           </Routes>
           <MyHead />
           <Footer />

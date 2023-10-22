@@ -10,6 +10,10 @@ const Footer: React.FC = () => {
     navigate('/about');
   }
 
+  const handleContact = () => {
+    navigate('/contact');
+  }
+
   return (
     <div className="footer-basic">
       <footer>
@@ -21,7 +25,7 @@ const Footer: React.FC = () => {
         </div>
         <ul className="list-inline">
           <li className="list-inline-item" onClick = {handleAbout}> <a href="#">About Us</a></li>
-          <li className="list-inline-item"><a href="#">Contact Us</a></li>
+          <li className="list-inline-item" onClick = {handleContact}><a href="#">Contact Us</a></li>
         </ul>
         <p className="copyright">Eous© 2023</p>
       </footer>
