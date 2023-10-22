@@ -82,6 +82,6 @@ def read_items():
     #items = crud.get_items(db, skip=skip, limit=limit)
     return d
 
-@app.post("/shipping/", response_model=schemas.ShippingInfo)
+@app.post("/shipping_info/", response_model=schemas.ShippingInfo)
 def create_shipping_info(shipping_info: schemas.ShippingInfoCreate, db:Session=Depends(get_db)):
     return crud.create_shipping_info(db=db, shipping_info=shipping_info)
