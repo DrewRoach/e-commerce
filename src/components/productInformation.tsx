@@ -1,4 +1,3 @@
-
 import ProductType from "../utils/types";
 
 //cart[key] < number * products.price.

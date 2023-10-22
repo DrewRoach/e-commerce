@@ -1,45 +1,44 @@
 import { createContext, useState } from "react";
+import CartType from "./types";
+import ProductType from "./types";
 
 
 interface cartContext {
-  cart: number[];
-  handleAddToCart?(id: number, quantity: number): void;
+  cart: CartType[];
+  handleAddToCart?(product: ProductType, quantity: number): void;
   handleRemove?(id: number): void;
   handleIncreaseCart?(id:number):void
   handleDelete?(id: number): void
 }
 
-const initCart = [0,0,0,0,0,0];
+const initCart: CartType[] = [];
 
 export const CartContext = createContext<cartContext>({ cart: [] });
 export const CartContextProvider = (props: any) => {
   const [cart, setCart] = useState(initCart);
 
-  const handleAddToCart = (id: number, quantity: number) => {
-    const updatedCart = cart.map((c:number,i:number)=>{
-      if(i === id){
-        return c + quantity
-      }else return c
-    })
-    setCart(updatedCart);
+  const handleAddToCart = (product: ProductType, quantity: number) => {
+    const productIndex = cart.findIndex((p:ProductType)=> p.id == product.id);
+    if(productIndex === -1){
+      setCart([...cart, {...product, quantity:quantity}])
+    }else{
+      const updatedCart = [...cart]
+      updatedCart[productIndex].quantity += quantity;
+      setCart(updatedCart)
+    }
     console.log(JSON.stringify(cart));
   };
 
-  const handleRemove = (id: number) => {
-    const updatedCart = cart.map((c:number,i:number)=>{
-      if(i === id){
-        return c -1;
-      }else return c
-    })
-    setCart(updatedCart);
+  const handleRemove = (index: number) => {
+    const updatedCart = [...cart]
+    updatedCart[index].quantity -=1;
+    if(updatedCart[index].quantity <=0){
+      handleDelete(index);
+    }else setCart(updatedCart);
   };
 
-  const handleDelete = (id: number) => {
-    const updatedCart = cart.map((c:number,i:number)=>{
-      if(i === id){
-        return c = 0
-      }else return c
-    })
+  const handleDelete = (index: number) => {
+    const updatedCart = cart.filter((_, i:number)=> i !== index)
     setCart(updatedCart);
   };
 
