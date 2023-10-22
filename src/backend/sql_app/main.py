@@ -1,9 +1,12 @@
+# import os
 from typing import List
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 from . import crud, models, schemas
 from .database import SessionLocal, engine
+
+# dirname = os.path.dirname(__file__)
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -29,7 +32,9 @@ def get_db():
     finally:
         db.close()
 
+# url = os.path.join(dirname, '../../assets/GLASSES-DWEEB.jpeg')
 url = '/Users/drew/Desktop/Apps/5234/e-commerce/src/assets/GLASSES-DWEEB.jpeg'
+
 d = [
     {
         "id": 1,
