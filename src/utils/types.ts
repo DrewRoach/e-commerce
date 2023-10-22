@@ -20,11 +20,11 @@ export default interface ShippingInfoType{
     apt_suite_number: string;
     city: string;
     state: string;
-    zip_code: string;
+    zip_code: number;
     card_first_name: string;
     card_last_name: string;
-    card_number: string;
+    card_number: number;
     card_exp_date: string;
-    card_security_code: string;
-    card_zip_code: string;
+    card_security_code: number;
+    card_zip_code: number;
   }
