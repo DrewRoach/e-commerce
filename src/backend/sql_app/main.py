@@ -37,42 +37,43 @@ url = '/Users/drew/Desktop/Apps/5234/e-commerce/src/assets/GLASSES-DWEEB.jpeg'
 
 d = [
     {
-        "id": 1,
+        "item_id": 1,
         "name": "Glasses 1",
         "price": 999.0,
         "img": url,
     },
     {
-        "id": 2,
+        "item_id": 2,
         "name": "Glasses 2",
         "price": 1999.0,
         "img": url,
     },
     {
-        "id": 3,
+        "item_id": 3,
         "name": "Glasses 3",
         "price": 540.0,
         "img": url,
     },
     {
-        "id": 4,
+        "item_id": 4,
         "name": "Glasses 4",
         "price": 1.0,
         "img": url,
     },
     {
-        "id": 5,
+        "item_id": 5,
         "name": "Glasses 5",
         "price": 10000,
         "img": url,
     },
     {
-        "id": 6,
+        "item_id": 6,
         "name": "Glasses 6",
         "price": 500,
         "img": url
     }
 ]
+
 @app.post("/items/", response_model=schemas.Item)
 def create_item(item: schemas.ItemCreate, db:Session=Depends(get_db)):
     return crud.create_item(db=db, item=item)
@@ -80,3 +81,4 @@ def create_item(item: schemas.ItemCreate, db:Session=Depends(get_db)):
 def read_items():
     #items = crud.get_items(db, skip=skip, limit=limit)
     return d
+
