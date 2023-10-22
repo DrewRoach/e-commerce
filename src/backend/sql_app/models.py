@@ -26,13 +26,13 @@ class ShippingInfo(Base):
     apt_suite_number = Column(String, index=False)
     city = Column(String, index=False)
     state = Column(String, index=False)
-    zip_code = Column(String, index=False)
+    zip_code = Column(Integer, index=False)
     card_first_name = Column(String, index=False)
     card_last_name = Column(String, index=False)
-    card_number = Column(String, index=False)
+    card_number = Column(Integer, index=False)
     card_exp_date = Column(String, index=False)
-    card_security_code = Column(String, index=False)
-    card_zip_code = Column(String, index=False)
+    card_security_code = Column(Integer, index=False)
+    card_zip_code = Column(Integer, index=False)
 
 
 

@@ -25,13 +25,13 @@ class ShippingInfoBase(BaseModel):
     apt_suite_number: str
     city: str
     state: str
-    zip_code: str
+    zip_code: int
     card_first_name: str
     card_last_name: str
-    card_number: str
+    card_number: int
     card_exp_date: str
-    card_security_code: str
-    card_zip_code: str
+    card_security_code: int
+    card_zip_code: int
 
 class ShippingInfoCreate(ShippingInfoBase):
     pass
