@@ -1,77 +1,87 @@
-import { useEffect, useState } from "react";
-import { Product } from "../components/product";
-import ProductType from "../utils/types";
-import axios from 'axios';
-const Home = () => {
-  const [products, setProducts] = useState<ProductType[] | []>([])
+import './home.css'
 
-  //fetching all the products
-  useEffect(() => {
-    axios.get<ProductType[]>('http://127.0.0.1:8000/items/').then((resp)=>{
-      console.log(resp.data);
-      setProducts(resp.data);
-    })
-    
-  },[])
-  console.log(products)
-  
+const Home = ()  => {
   return (
-    <div className="home-page">
-      <header className="header">
-        <div className="header-content">
-          <h1>Welcome to Eous</h1>
-          <p>Your Vision, Our Passion</p>
-        </div>
-      </header>
-
-      <section className="mission-vision">
-        <div className="mission">
-          <h2>Our Mission</h2>
-          <p>
-            At Eous, our mission is to provide the finest eyewear
+    <section className="section_all bg-light" id="about">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="section_title_all text-center">
+                            <h1 className="font-weight-bold">Welcome To <span className="text-custom">Eous</span></h1>
+                            <p className="section_subtitle mx-auto text-muted">Your Vision, Our Passion</p>
+                            <div className="">
+                                <i className=""></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="row vertical_content_manage mt-5">
+                    <div className="col-lg-6">
+                        <div className="about_header_main mt-3">
+                            <h4 className="about_heading text-capitalize font-weight-bold mt-4">Our Mission</h4>
+                            <p className="text-muted mt-3">At Eous, our mission is to provide the finest eyewear
             that not only enhances your vision but also complements your
             style. We are dedicated to delivering high-quality products and
-            exceptional customer service.
-          </p>
-        </div>
-        <div className="vision">
-          <h2>Our Vision</h2>
-          <p>
-            Our vision is to be the premier destination for eyewear enthusiasts.
+            exceptional customer service.</p>
+                        </div>
+                        <div className="about_header_main mt-3">
+                            <h4 className="about_heading text-capitalize font-weight-bold mt-4">Our Vision</h4>
+                            <p className="text-muted mt-3">Our vision is to be the premier destination for eyewear enthusiasts.
             We aim to create a seamless shopping experience where customers can
-            find the perfect glasses to express their individuality and style.
-          </p>
-        </div>
-      </section>
-
-      <section className="strategy">
-        <h2>Our Business Strategy</h2>
-        <p>
-          Eous's strategy revolves around offering a curated selection
+            find the perfect glasses to express their individuality and style.</p>
+                        </div>
+                    <div className="about_header_main mt-3">
+                            <h4 className="about_heading text-capitalize font-weight-bold mt-4">Our Business Strategy</h4>
+                            <p className="text-muted mt-3">Eous's strategy revolves around offering a curated selection
           of eyewear, from designer frames to prescription lenses. We prioritize
           quality, affordability, and style. Our customer-centric approach ensures
-          that every purchase is a satisfying experience.
-        </p>
-      </section>
+          that every purchase is a satisfying experience.</p>
+                        </div>
+                    </div>
+              
+                </div>
 
-      <section className="customer-message">
-        <h2>A Message to Our Customers</h2>
-        <p>
-          We want to thank you for choosing Eous as your eyewear
-          provider. Your satisfaction is our top priority, and we are committed
-          to helping you see the world with clarity and confidence. Explore our
-          collection and find the perfect pair that reflects your personality.
-          Welcome to a world of crystal-clear vision!
-        </p>
-      </section>
-    <div className="productContainer">
-      <h1 style={{gridColumn:"1/4", textAlign:"center"}}>Products</h1>
-      {products.map(product => {return(
-        <Product {...product}/>
-      )})}
-    </div>
-    </div>
+                {/* <div className="row mt-3">
+                    <div className="col-lg-4">
+                        <div className="about_content_box_all mt-3">
+                            <div className="about_detail text-center">
+                                <div className="about_icon">
+                                    <i className="fas fa-pencil-alt"></i>
+                                </div>
+                                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">Creative Design</h5>
+                                <p className="edu_desc mt-3 mb-0 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4">
+                        <div className="about_content_box_all mt-3">
+                            <div className="about_detail text-center">
+                                <div className="about_icon">
+                                    <i className="fab fa-angellist"></i>
+                                </div>
+                                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">We make Best Result</h5>
+                                <p className="edu_desc mb-0 mt-3 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4">
+                        <div className="about_content_box_all mt-3">
+                            <div className="about_detail text-center">
+                                <div className="about_icon">
+                                    <i className="fas fa-paper-plane"></i>
+                                </div>
+                                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">best platform </h5>
+                                <p className="edu_desc mb-0 mt-3 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+            </div>
+        </section>
   );
-};
+}
 
 export default Home;

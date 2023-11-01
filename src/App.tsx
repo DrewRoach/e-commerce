@@ -10,6 +10,7 @@ import Confirm from "./confirmation";
 import MyHead from './components/footerHead';
 import AboutUs from "./pages/aboutUs";
 import ContactUs from "./pages/contactUs";
+import Products from "./pages/productPage";
 export const App = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ export const App = () => {
           {/* <Navbar /> */}
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />}/>
             <Route path="/cart" element={<Cart />} />
             <Route path="/information" element={<PaymentEntry/>}/>
             <Route path="/review" element={<ViewOrder/>}/>

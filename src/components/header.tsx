@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   }
 
   const handleProducts = () => {
-    navigate('/');
+    navigate('/products');
   }
 
   const handleCart = () => {
