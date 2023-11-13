@@ -10,7 +10,7 @@ interface postOrder{
   quantity: number;
 }
 const PaymentEntry = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart} = useContext(CartContext);
   const [order, setOrder] = useState({
     phone_number: "",
     credit_card_number: "",
@@ -46,6 +46,8 @@ const PaymentEntry = () => {
     axios.post('http://127.0.0.1:8000/orders/create/',{data: posted_order}).then(
         function (resp){
             console.log(resp)
+            clearCart!()
+            //need to clear out the cart when we post.
         }
     ).catch(function(err){
         console.log(err)

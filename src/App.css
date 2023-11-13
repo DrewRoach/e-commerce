@@ -1,3 +1,25 @@
+#root{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+}
+
+footer{
+    flex-shrink: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+
+}
+
+article{
+    flex: 1 0 auto;
+}
 .productContainer{
     margin: auto;
     display: grid;
@@ -17,13 +39,24 @@
 
 .quantityContainer{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-shrink: 3;
+    border: none;
+    outline: none;
+}
+
+.quantityContainer:focus, input:focus{
+    outline: none;
+}
+
+.quantityContainer input{
+    border: none;
+    outline: none;
 }
 
 .productImage{
-    width: 50%;
-    height: auto;
+    width: 100px;
+    height: 100px;
 }
 
 .cartButton{
@@ -32,6 +65,7 @@
 }
 
 .cartContainer{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
