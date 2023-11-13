@@ -9,6 +9,7 @@ interface cartContext {
   handleRemove?(id: number): void;
   handleIncreaseCart?(id:number):void
   handleDelete?(id: number): void
+  clearCart?(): void
 }
 
 const initCart: CartType[] = [];
@@ -42,7 +43,11 @@ export const CartContextProvider = (props: any) => {
     setCart(updatedCart);
   };
 
-  const context = { cart, handleAddToCart, handleRemove, handleDelete };
+  const clearCart = ()=>{
+    setCart([])
+  }
+
+  const context = { cart, handleAddToCart, handleRemove, handleDelete, clearCart };
   return (
     <CartContext.Provider value={context}>
       {props.children}

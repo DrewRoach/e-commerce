@@ -10,7 +10,7 @@ interface postOrder{
   quantity: number;
 }
 const PaymentEntry = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart} = useContext(CartContext);
   const [order, setOrder] = useState({
     phone_number: "",
     credit_card_number: "",
@@ -19,8 +19,7 @@ const PaymentEntry = () => {
     card_postal: "",
     first_name: "",
     last_name: "",
-    card_holder_first_name: "",
-    card_holder_last_name: "",
+    card_holder_name: "",
     address_1: "",
     address_2: "",
     city: "",
@@ -35,23 +34,80 @@ const PaymentEntry = () => {
 
     let posted_order: postOrder[] = []
 
+    let payment = {
+      name: order.card_holder_name,
+      card_number: order.credit_card_number,
+      security_code: order.cvc,
+      exp_date: order.expir_date,
+      //zipcode: order.card_holder_zip
+    }
+
+    // let shipping = {
+    //   first_name: order.first_name,
+    //   last_name: order.last_name,
+    //   email: order.email,
+    //   phone_number: order.phone_number,
+    //   address: order.address_1,
+    //   apt_suite_number: order.address_2,
+    //   city: order.city,
+    //   state: order.state,
+    //   zip_code: order.zip
+    // }
+
+    let shipping = {
+      first_name: "john",
+      last_name: "doe",
+      email: "johndoe@osu.edu",
+      phone_number: "614-123-4567",
+      address: "4153 Baker Hall",
+      apt_suite_number: "",
+      city: "Columbus",
+      state: "Ohio",
+      zip_code: 70974
+    }
+
     cart.map((product: ProductType)=>{
       let {item_id, quantity} = product;
       posted_order.push({product_id: item_id, quantity: quantity})
-
     })
 
+    
+
     console.log(posted_order)
+    console.log(shipping)
+    console.log(payment)
+
 
     axios.post('http://127.0.0.1:8000/orders/create/',{data: posted_order}).then(
+        function (resp){
+            console.log(resp)
+            clearCart!()
+            //need to clear out the cart when we post.
+        }
+    ).catch(function(err){
+        console.log(err)
+    })
+
+    // Code for submitting payment
+    axios.post('http://127.0.0.1:8080/',{data: payment}).then(
         function (resp){
             console.log(resp)
         }
     ).catch(function(err){
         console.log(err)
     })
-    navigate("/confirm", { state: { order } });
 
+    // Code for submitting shipping
+    axios.post('http://127.0.0.1:8090/',{data: shipping}).then(
+        function (resp){
+            console.log(resp)
+        }
+    ).catch(function(err){
+        console.log(err)
+    })
+
+
+    navigate("/confirm", { state: { order } });
   };
 
   const cardFrontStyle: React.CSSProperties = {
