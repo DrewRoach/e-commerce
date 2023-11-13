@@ -4,13 +4,14 @@ import Home from "./pages/home";
 import Header from "./components/header"
 import Footer from "./components/footer"
 import { Cart } from "./pages/cart";
-import PaymentEntry from "./paymentEntry";
+import PaymentEntry from "./Payment/paymentEntry";
 import ViewOrder from "./viewOrder";
 import Confirm from "./confirmation";
 import MyHead from './components/footerHead';
 import AboutUs from "./pages/aboutUs";
 import ContactUs from "./pages/contactUs";
 import Products from "./pages/productPage";
+import ShippingForm from "./utils/shipping";
 export const App = () => {
   return (
     <div>
@@ -21,11 +22,12 @@ export const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />}/>
             <Route path="/cart" element={<Cart />} />
-            <Route path="/information" element={<PaymentEntry/>}/>
+            <Route path="/payment" element={<PaymentEntry/>}/>
             <Route path="/review" element={<ViewOrder/>}/>
             <Route path="/confirm" element={<Confirm/>}/>
             <Route path="/about" element={<AboutUs/>}/>
             <Route path="/contact" element={<ContactUs/>}/>
+            <Route path="/shipping" element={<ShippingForm/>}/>
           </Routes>
           <MyHead />
           <Footer />

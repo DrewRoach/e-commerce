@@ -44,8 +44,8 @@ export const Cart = () => {
       <div>
         <p>Cart Total: {tP}</p>
       </div>
-      <Link to={"/information"}>
-        <button>Payment/Shipping</button>
+      <Link to={"/shipping"}>
+        <button>Shipping</button>
       </Link>
     </div>
   );
