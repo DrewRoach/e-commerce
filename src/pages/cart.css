@@ -1,0 +1,13 @@
+.buttonShipping {
+    font-family: helvetica;
+    display: flex;
+    text-decoration: none;
+    align-self: flex-end;
+    margin-top: 20px;
+    position: sticky;
+    bottom: 20px;
+    display: inline-block;
+    background: black;
+    color: white;
+    padding: 20px 40px;
+  }

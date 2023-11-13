@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Header from "./components/header"
 import Footer from "./components/footer"
 import { Cart } from "./pages/cart";
+import { Order } from "./pages/orderConfirmation"
 import PaymentEntry from "./Payment/paymentEntry";
 import ViewOrder from "./viewOrder";
 import Confirm from "./confirmation";
@@ -22,6 +23,7 @@ export const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />}/>
             <Route path="/cart" element={<Cart />} />
+            <Route path="/order" element={<Order />} />
             <Route path="/payment" element={<PaymentEntry/>}/>
             <Route path="/review" element={<ViewOrder/>}/>
             <Route path="/confirm" element={<Confirm/>}/>

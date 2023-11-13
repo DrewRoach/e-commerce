@@ -370,9 +370,11 @@ const PaymentEntry = () => {
           </div>
         </div>
       </div>
-      <button className="button" onClick={handleSubmit}>
-        Confirm Payment
-      </button>
+      <div className = "center-container">
+        <button className="buttonPayment" onClick={handleSubmit}>
+          Confirm Payment
+        </button>
+      </div>
     </div>
   );
 };
