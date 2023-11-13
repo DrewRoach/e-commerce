@@ -19,8 +19,7 @@ const PaymentEntry = () => {
     card_postal: "",
     first_name: "",
     last_name: "",
-    card_holder_first_name: "",
-    card_holder_last_name: "",
+    card_holder_name: "",
     address_1: "",
     address_2: "",
     city: "",
@@ -34,12 +33,33 @@ const PaymentEntry = () => {
   const handleSubmit = () => {
 
     let posted_order: postOrder[] = []
+    
+    let payment = {
+      name: order.card_holder_name,
+      card_number: order.credit_card_number,
+      security_code: order.cvc,
+      exp_date: order.expir_date,
+      //zipcode: order.card_holder_zip
+    }
+
+    let shipping = {
+      first_name: order.first_name,
+      last_name: order.last_name,
+      email: order.email,
+      phone_number: order.phone_number,
+      address: order.address_1,
+      apt_suite_number: order.address_2,
+      city: order.city,
+      state: order.state,
+      zip_code: order.zip
+    }
 
     cart.map((product: ProductType)=>{
       let {item_id, quantity} = product;
       posted_order.push({product_id: item_id, quantity: quantity})
-
     })
+
+    
 
     console.log(posted_order)
 
@@ -50,8 +70,27 @@ const PaymentEntry = () => {
     ).catch(function(err){
         console.log(err)
     })
-    navigate("/confirm", { state: { order } });
 
+    // Code for submitting payment
+    axios.post('http://127.0.0.1:8000/',{payment}).then(
+        function (resp){
+            console.log(resp)
+        }
+    ).catch(function(err){
+        console.log(err)
+    })
+
+    // Code for submitting shipping
+    axios.post('http://127.0.0.1:8000/',{shipping}).then(
+        function (resp){
+            console.log(resp)
+        }
+    ).catch(function(err){
+        console.log(err)
+    })
+
+
+    navigate("/confirm", { state: { order } });
   };
 
   const cardFrontStyle: React.CSSProperties = {
