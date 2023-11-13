@@ -18,7 +18,7 @@ export const CartContextProvider = (props: any) => {
   const [cart, setCart] = useState(initCart);
 
   const handleAddToCart = (product: ProductType, quantity: number) => {
-    const productIndex = cart.findIndex((p:ProductType)=> p.id == product.id);
+    const productIndex = cart.findIndex((p:ProductType)=> p.item_id == product.item_id);
     if(productIndex === -1){
       setCart([...cart, {...product, quantity:quantity}])
     }else{

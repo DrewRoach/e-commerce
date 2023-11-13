@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Integer, String, Float
+from sqlalchemy import Boolean, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
 
 
@@ -12,6 +12,15 @@ class Item(Base):
     product_name = Column(String, index=True)
     quantity = Column(Integer, index=False)
     price = Column(Float, index=False)
+    img = Column(String, index=False)
+    
+
+class Order(Base):
+    __tablename__ = "orders"
+    
+    id = Column(String, index=True, primary_key=True)
+    product_id = Column(Integer, ForeignKey("items.item_id"), primary_key=True)
+    quantity = Column(Integer)
 
 # Shipping Model
 class ShippingInfo(Base):
