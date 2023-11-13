@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 from . import crud, models, schemas
 from .database import SessionLocal, engine
+import uvicorn
 
 # dirname = os.path.dirname(__file__)
 
@@ -53,3 +54,7 @@ async def new_order(order_list: schemas.OrderList, db:Session=Depends(get_db)):
 @app.post("/shipping_info/", response_model=schemas.ShippingInfo)
 def create_shipping_info(shipping_info: schemas.ShippingInfoCreate, db:Session=Depends(get_db)):
     return crud.create_shipping_info(db=db, shipping_info=shipping_info)
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=8000, host='0.0.0.0')

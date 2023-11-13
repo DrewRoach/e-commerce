@@ -33,7 +33,7 @@ const PaymentEntry = () => {
   const handleSubmit = () => {
 
     let posted_order: postOrder[] = []
-    
+
     let payment = {
       name: order.card_holder_name,
       card_number: order.credit_card_number,
@@ -42,16 +42,28 @@ const PaymentEntry = () => {
       //zipcode: order.card_holder_zip
     }
 
+    // let shipping = {
+    //   first_name: order.first_name,
+    //   last_name: order.last_name,
+    //   email: order.email,
+    //   phone_number: order.phone_number,
+    //   address: order.address_1,
+    //   apt_suite_number: order.address_2,
+    //   city: order.city,
+    //   state: order.state,
+    //   zip_code: order.zip
+    // }
+
     let shipping = {
-      first_name: order.first_name,
-      last_name: order.last_name,
-      email: order.email,
-      phone_number: order.phone_number,
-      address: order.address_1,
-      apt_suite_number: order.address_2,
-      city: order.city,
-      state: order.state,
-      zip_code: order.zip
+      first_name: "john",
+      last_name: "doe",
+      email: "johndoe@osu.edu",
+      phone_number: "614-123-4567",
+      address: "4153 Baker Hall",
+      apt_suite_number: "",
+      city: "Columbus",
+      state: "Ohio",
+      zip_code: 70974
     }
 
     cart.map((product: ProductType)=>{
@@ -62,6 +74,9 @@ const PaymentEntry = () => {
     
 
     console.log(posted_order)
+    console.log(shipping)
+    console.log(payment)
+
 
     axios.post('http://127.0.0.1:8000/orders/create/',{data: posted_order}).then(
         function (resp){
@@ -72,7 +87,7 @@ const PaymentEntry = () => {
     })
 
     // Code for submitting payment
-    axios.post('http://127.0.0.1:8000/',{payment}).then(
+    axios.post('http://127.0.0.1:8080/',{data: payment}).then(
         function (resp){
             console.log(resp)
         }
@@ -81,7 +96,7 @@ const PaymentEntry = () => {
     })
 
     // Code for submitting shipping
-    axios.post('http://127.0.0.1:8000/',{shipping}).then(
+    axios.post('http://127.0.0.1:8090/',{data: shipping}).then(
         function (resp){
             console.log(resp)
         }

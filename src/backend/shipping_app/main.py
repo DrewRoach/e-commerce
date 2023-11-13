@@ -3,7 +3,7 @@ from typing import List
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-# dirname = os.path.dirname(__file__)
+import uvicorn
 
 app = FastAPI()
 origins = [
@@ -27,13 +27,16 @@ class Shipping(BaseModel):
     email: str 
     phone_number: str 
     address: str 
-    apt_suite_number: str
+    apt_suite_number: str | None = None
     city: str
     state: str
     zip_code: int
 
 @app.post("/")
-async def get_shippinh(shipping: Shipping):
-    if shipping:
-        return {"message": "shipping info received"}
-    return Shipping
+async def get_shipping(shipping: Shipping):
+    # if shipping:
+    #     return {"message": "shipping info received"}
+    return shipping
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=8090, host='127.0.0.1')
