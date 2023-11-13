@@ -1,20 +1,35 @@
 from pydantic import BaseModel
-
+from typing import List
 # Item Schema
 class ItemBase(BaseModel):
     product_name: str
     quantity: int
     price: float
+    img: str
 
 class ItemCreate(ItemBase):
     pass
 
 class Item(ItemBase):
     item_id: int
-
     class Config:
         orm_mode = True
 
+
+class OrderBase(BaseModel):
+    quantity: int
+    product_id: int
+    
+class OrderCreate(OrderBase):
+    pass
+
+class Order(OrderBase):
+    id: str
+    class Config:
+        orm_mode = True
+
+class OrderList(BaseModel):
+    data: List[OrderBase]        
 # Shipping Schema
 class ShippingInfoBase(BaseModel):
     first_name: str 

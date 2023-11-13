@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-
+from typing import List
 from . import models, schemas
-
+import uuid
 # Item Methods
 def get_items(db:Session, skip: int=0, limit: int = 100):
     return db.query(models.Item).offset(skip).limit(limit).all()
@@ -15,6 +15,20 @@ def create_item(db: Session, item: schemas.ItemCreate):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def create_order(db: Session, ordered_items: schemas.OrderList):
+    order_id = uuid.uuid1()
+    order = []
+    for i in ordered_items.data:
+        quantity=i.quantity
+        prod_id = i.product_id
+        order.append(models.Order(id=str(order_id), product_id=prod_id, quantity=quantity))
+        
+    db.add_all(order)
+    db.commit()
+    
+        
 
 # Shipping Methods
 

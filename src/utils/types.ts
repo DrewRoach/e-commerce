@@ -1,6 +1,6 @@
 export default interface ProductType {
-    id: number;
-    name: string;
+    item_id: number;
+    product_name: string;
     price: number;
     img: string;
   }

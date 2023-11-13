@@ -1,7 +1,5 @@
-import React from "react";
 import "./viewOrder.css";
 import {useNavigate} from 'react-router-dom'
-import {useLocation} from "react-router-dom";
 //import {Purchase, order} from './purchase.tsx'
 // import order from "./paymentEntry";
 
