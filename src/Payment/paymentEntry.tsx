@@ -42,29 +42,18 @@ const PaymentEntry = () => {
       //zipcode: order.card_holder_zip
     }
 
-    // let shipping = {
-    //   first_name: order.first_name,
-    //   last_name: order.last_name,
-    //   email: order.email,
-    //   phone_number: order.phone_number,
-    //   address: order.address_1,
-    //   apt_suite_number: order.address_2,
-    //   city: order.city,
-    //   state: order.state,
-    //   zip_code: order.zip
-    // }
-
     let shipping = {
-      first_name: 'john',
-      last_name: 'doe',
-      email: 'johndoe@osu.edu',
-      phone_number: '614-123-4567',
-      address: '4153 Baker Hall',
-      apt_suite_number: '537',
-      city: 'Columbus',
-      state: 'Ohio',
-      zip_code: 70974
+      first_name: order.first_name,
+      last_name: order.last_name,
+      email: order.email,
+      phone_number: order.phone_number,
+      address: order.address_1,
+      apt_suite_number: order.address_2,
+      city: order.city,
+      state: order.state,
+      zip_code: order.zip
     }
+
 
     cart.map((product: ProductType)=>{
       let {item_id, quantity} = product;
@@ -91,7 +80,7 @@ const PaymentEntry = () => {
     })
 
     // Code for submitting payment
-    axios.post('http://localhost:8080/',{...payment}).then(
+    axios.post('http://localhost:8080/', payment).then(
         function (resp){
             console.log(resp)
         }
@@ -100,7 +89,7 @@ const PaymentEntry = () => {
     })
 
     // Code for submitting shipping
-    axios.post('http://localhost:8090/',shipping).then(
+    axios.post('http://localhost:8090/', shipping).then(
         function (resp){
             console.log(resp)
         }
