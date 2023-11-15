@@ -1,11 +1,9 @@
 from sqlalchemy import Boolean, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-
-
-from .database import Base
+import database
 
 # Item Model
-class Item(Base):
+class Item(database.Base):
     __tablename__ = "items"
 
     item_id = Column(Integer, primary_key=True, index=True)
@@ -15,7 +13,7 @@ class Item(Base):
     img = Column(String, index=False)
     
 
-class Order(Base):
+class Order(database.Base):
     __tablename__ = "orders"
     
     id = Column(String, index=True, primary_key=True)
@@ -23,7 +21,7 @@ class Order(Base):
     quantity = Column(Integer)
 
 # Shipping Model
-class ShippingInfo(Base):
+class ShippingInfo(database.Base):
     __tablename__ = "shipping"
 
     shipping_id = Column(Integer, primary_key=True, index=True)
