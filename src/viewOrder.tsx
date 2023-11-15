@@ -14,7 +14,7 @@ const ViewOrder = () => {
   const handleConfirm = () => {
     
     // Send the shipping info to server
-    axios.post('http://127.0.0.1:8000/shipping_info/', {
+    axios.post('http://localhost:8000/shipping_info/', {
       // shipping_id: 1,
       first_name: location.state.order.first_name,
       last_name: location.state.order.last_name,
