@@ -81,7 +81,7 @@ const PaymentEntry = () => {
     axios.post('http://127.0.0.1:8000/orders/create/',{data: posted_order}).then(
         function (resp){
             console.log(resp)
-            clearCart!()
+            //clearCart!()
             //need to clear out the cart when we post.
         }
     ).catch(function(err){
