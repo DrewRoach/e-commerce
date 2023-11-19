@@ -7,7 +7,7 @@ const Products = () => {
 
   //fetching all the products
   useEffect(() => {
-    axios.get<ProductType[]>('http://127.0.0.1:8000/items/').then((resp)=>{
+    axios.get<ProductType[]>('http://localhost:8000/items/').then((resp)=>{
       console.log(resp.data);
       setProducts(resp.data);
     })

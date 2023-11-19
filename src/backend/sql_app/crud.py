@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from typing import List
-from . import models, schemas
+import models, schemas
 import uuid
 # Item Methods
 def get_items(db:Session, skip: int=0, limit: int = 100):
