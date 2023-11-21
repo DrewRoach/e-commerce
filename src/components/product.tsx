@@ -1,4 +1,4 @@
-import{ useContext, useState } from "react";
+import { useContext, useState } from "react";
 import ProductType from "../utils/types";
 import { CartContext } from "../utils/cartcontext";
 import { ProductInformation } from "./productInformation";
@@ -9,19 +9,24 @@ export const Product = (data: ProductType) => {
   return (
     <div className="product">
       <ProductInformation {...data} />
-      <>
-        <Quantity count={count} setCount={setCount} />
+      {data.quantity > 0 ? (
         <>
-          <button
-            disabled={count === 0}
-            onClick={() => handleAddToCart!(data, count)}
-            className="cartButton"
-          >
-            Add to cart
-          </button>
-
+          <Quantity count={count} setCount={setCount} quantity={data.quantity}/>
+          <>
+            <button
+              disabled={count === 0}
+              onClick={() => handleAddToCart!(data, count)}
+              className="cartButton"
+            >
+              Add to cart
+            </button>
+          </>
         </>
-      </>
+      ) : (
+        <>
+          <p>Sold out</p>
+        </>
+      )}
     </div>
   );
 };

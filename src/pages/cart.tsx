@@ -22,6 +22,7 @@ export const Cart = () => {
                   <p>Total: {price}</p>
                   <div className="addRemoveButtons">
                     <button
+                      disabled={cart[index].order_quantity >= product.quantity}
                       onClick={() => handleAddToCart!(product, 1)}
                       style={{ marginRight: 20 }}
                     >

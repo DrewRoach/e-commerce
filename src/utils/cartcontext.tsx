@@ -21,10 +21,10 @@ export const CartContextProvider = (props: any) => {
   const handleAddToCart = (product: ProductType, quantity: number) => {
     const productIndex = cart.findIndex((p:ProductType)=> p.item_id == product.item_id);
     if(productIndex === -1){
-      setCart([...cart, {...product, quantity:quantity}])
+      setCart([...cart, {...product, order_quantity:quantity}])
     }else{
       const updatedCart = [...cart]
-      updatedCart[productIndex].quantity += quantity;
+      updatedCart[productIndex].order_quantity += quantity;
       setCart(updatedCart)
     }
     console.log(JSON.stringify(cart));
@@ -32,8 +32,8 @@ export const CartContextProvider = (props: any) => {
 
   const handleRemove = (index: number) => {
     const updatedCart = [...cart]
-    updatedCart[index].quantity -=1;
-    if(updatedCart[index].quantity <=0){
+    updatedCart[index].order_quantity -=1;
+    if(updatedCart[index].order_quantity <=0){
       handleDelete(index);
     }else setCart(updatedCart);
   };

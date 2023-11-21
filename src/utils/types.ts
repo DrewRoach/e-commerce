@@ -3,11 +3,12 @@ export default interface ProductType {
     product_name: string;
     price: number;
     img: string;
+    quantity: number;
   }
 
 export default interface CartType{
     product: ProductType;
-    quantity: number;
+    order_quantity: number;
   }
 
 export default interface ShippingInfoType{
