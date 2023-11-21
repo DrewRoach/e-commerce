@@ -3,6 +3,7 @@ from typing import List
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import uvicorn
 # dirname = os.path.dirname(__file__)
 
 app = FastAPI()
@@ -33,3 +34,7 @@ async def get_payment(payment: Payment):
     if payment:
         return {"message": "payment received"}
     return payment
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=8080, host='localhost')

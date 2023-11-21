@@ -3,12 +3,12 @@ from typing import List
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
-from . import crud, models, schemas
-from .database import SessionLocal, engine
+import crud, models, schemas, database
+import uvicorn
 
 # dirname = os.path.dirname(__file__)
 
-models.Base.metadata.create_all(bind=engine)
+models.database.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
 origins = [
@@ -26,7 +26,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 def get_db():
-    db = SessionLocal()
+    db = database.SessionLocal()
     try: 
         yield db
     finally:
@@ -53,3 +53,7 @@ async def new_order(order_list: schemas.OrderList, db:Session=Depends(get_db)):
 @app.post("/shipping_info/", response_model=schemas.ShippingInfo)
 def create_shipping_info(shipping_info: schemas.ShippingInfoCreate, db:Session=Depends(get_db)):
     return crud.create_shipping_info(db=db, shipping_info=shipping_info)
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, port=8000, host='localhost')
