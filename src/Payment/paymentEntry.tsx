@@ -36,12 +36,12 @@ const PaymentEntry = () => {
     let posted_order: postOrder[] = []
 
     cart.map((product: ProductType)=>{
-      let {item_id, quantity} = product;
-      posted_order.push({product_id: item_id, quantity: quantity})
+      let {item_id, order_quantity} = product;
+      posted_order.push({product_id: item_id, quantity: order_quantity})
 
     })
 
-    console.log(posted_order)
+    
 
     axios.post('http://127.0.0.1:8000/orders/create/',{data: posted_order}).then(
         function (resp){

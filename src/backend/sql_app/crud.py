@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import update
 from typing import List
 from . import models, schemas
 import uuid
@@ -23,6 +24,8 @@ def create_order(db: Session, ordered_items: schemas.OrderList):
     for i in ordered_items.data:
         quantity=i.quantity
         prod_id = i.product_id
+        
+        db.query(models.Item).filter_by(item_id = prod_id).update({'quantity': models.Item.quantity - quantity})
         order.append(models.Order(id=str(order_id), product_id=prod_id, quantity=quantity))
         
     db.add_all(order)

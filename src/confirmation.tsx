@@ -14,10 +14,10 @@ const Confirm = () => {
 
   return (
     
-    <div>
+    <div style={{height: "100vh"}}>
       <h2>Thank you for your purchase!</h2>
       <h3>Your confirmation code is {confirmationCode}</h3>
-      <button className= "button" onClick={handleReturn}>Home</button>
+      <button style={{marginTop:"30vh", marginLeft: "40vw", width:"20%", textAlign:"center"}}className= "button" onClick={handleReturn}>Home</button>
     </div>
   );
 };

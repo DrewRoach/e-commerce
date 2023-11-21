@@ -28,7 +28,7 @@ class Payment(BaseModel):
     exp_date: str
     zipcode: int | None = None
 
-@app.post("/")
+@app.post("/payment/")
 async def get_payment(payment: Payment):
     if payment:
         return {"message": "payment received"}
