@@ -1,0 +1,18 @@
+.product-grid2 {
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  &__product-wrapper {
+    display: inline-block;
+    font-size: 16px; // Reset font size for inner elements
+    width: 33.33333%;
+    box-sizing: border-box; // Ensure padding doesn't affect width
+    vertical-align: top; // Align elements at the top
+  }
+
+}

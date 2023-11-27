@@ -1,12 +1,16 @@
-import React from 'react';
-import './header.css';
+import React, { useState } from 'react';
+import './header.css'; // Import your CSS file
 import {useNavigate} from 'react-router-dom';
 import logo from "../assets/glasses-clipart.png";
 
-
-const Header: React.FC = () => {
+const Navbar = () => {
+  const [isChecked, setChecked] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleCheckboxChange = () => {
+    setChecked(!isChecked);
+  };
   
   const handleHome = () => {
     navigate('/');
@@ -20,23 +24,31 @@ const Header: React.FC = () => {
     navigate('/cart');
   }
 
+  const handleContact = () => {
+    navigate('/contact');
+  }
+
   return (
-    <div className="header-basic">
-      <header>
-        <div className='img-container'>
-          <img src={logo} alt="Logo" />
+    <nav className="navbar">
+      <div className="navbar-container">
+        <input type="checkbox" name="" id="checkbox" checked={isChecked} onChange={handleCheckboxChange} />
+        <div className="hamburger-lines">
+          <span className="line line1"></span>
+          <span className="line line2"></span>
+          <span className="line line3"></span>
         </div>
-        <div className="text-container">
-          <div id="title" onClick={handleHome}><a href="#">Eous</a></div>
-          <ul className="list-inline">
-            <li className="list-inline-item" onClick = {handleHome}> <a href="#">Home</a></li>
-            <li className="list-inline-item" onClick = {handleProducts}> <a href="#">Products</a></li>
-            <li className="list-inline-item" onClick = {handleCart}> <a href="#">Cart</a></li>
-          </ul>
+        <ul className={`menu-items ${isChecked ? 'show' : ''}`}>
+          <li onClick = {handleHome}><a href="#">Home</a></li>
+          <li onClick = {handleProducts}><a href="#">Shop</a></li>
+          <li onClick = {handleCart}><a href="#">Cart</a></li>
+          <li onClick = {handleContact}> <a href="#">Contact</a></li>
+        </ul>
+        <div className="logo">
+          <p>EOSU</p>
         </div>
-      </header>
-    </div>
+      </div>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;

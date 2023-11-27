@@ -13,6 +13,7 @@ import AboutUs from "./pages/aboutUs";
 import ContactUs from "./pages/contactUs";
 import Products from "./pages/productPage";
 import ShippingForm from "./utils/shipping";
+import ProductDetails from "./pages/productDetails"
 export const App = () => {
   return (
     <div>
@@ -30,6 +31,7 @@ export const App = () => {
             <Route path="/about" element={<AboutUs/>}/>
             <Route path="/contact" element={<ContactUs/>}/>
             <Route path="/shipping" element={<ShippingForm/>}/>
+            <Route path="/productDetails" element={<ProductDetails/>}/>
           </Routes>
           <MyHead />
           <Footer />

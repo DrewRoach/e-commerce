@@ -1,0 +1,38 @@
+a.title{
+    text-decoration: none !important;
+    color: #212529;
+  }
+  a.title:hover{
+    color: #3167eb;
+  }
+  .img-wrap{
+    overflow: hidden;
+  }
+  .form-control-sm {
+      height: calc(1.5em + 0.5rem + 2px);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+  }
+  
+  .custom-select {
+      display: inline-block;
+      width: auto;
+      height: calc(1.5em + 1rem + 2px);
+      padding: 0.5rem 2rem 0.5rem 1rem;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          padding-left: 1rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #687281;
+      vertical-align: middle;
+      background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23323f52' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1rem center/8px 10px;
+      border: 1px solid #c5ccd6;
+      border-radius: 0.35rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+  }

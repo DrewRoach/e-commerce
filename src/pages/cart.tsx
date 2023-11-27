@@ -18,7 +18,7 @@ export const Cart = () => {
           return (
             <>
                 <div className="cartItem">
-                  <ProductInformation {...product} />
+                  <img src={product.img} alt={product.product_name} className="cartItemImage" />
                   <p>Quantity: {product.quantity}</p>
                   <p>Total: {price}</p>
                   <div className="addRemoveButtons">

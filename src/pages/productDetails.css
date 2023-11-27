@@ -1,0 +1,99 @@
+.product-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set a minimum height for the container */
+    font-family: 'Arial', sans-serif; /* Specify your preferred font family */
+  }
+  
+  .image-container {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .white-box {
+    background-color: #fff; /* Set the background color to white */
+    padding: 20px;
+    border-radius: 8px; /* Optional: Add rounded corners to the white box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+  }
+
+  .white-box {
+    background-color: #fff; /* Set the background color to white */
+    padding: 20px;
+    border-radius: 8px; /* Optional: Add rounded corners to the white box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+    height: 450px
+  }
+
+  .gray-box {
+    background-color: #fff; /* Set the background color to white */
+    padding: 20px;
+    border-radius: 8px; /* Optional: Add rounded corners to the white box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+  }
+  
+  
+  .product-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .info-container {
+    flex: 1;
+  }
+  
+  .product-name {
+    font-family: 'Lobster'; /* Use Lobster font for product name */
+    font-size: 24px;
+    color: #333; /* Set the font color */
+  }
+  
+  .price {
+    font-size: 18px;
+    color: black; /* Set the font color */
+  }
+
+  .description {
+    font-size: 18px;
+    color: rgb(27, 22, 22); /* Set the font color */
+  }
+  
+  .label {
+    font-size: 18px;
+    color: black; /* Set the font color */
+  }
+  
+  .quantity-container {
+    margin-bottom: 10px;
+  }
+  
+  .quantity-input {
+    font-size: 14px;
+    padding: 8px; /* Increase padding for a more comfortable feel */
+    width: 60px; /* Set the width of the quantity input */
+    border: 1px solid #ccc; /* Add a border for a defined boundary */
+    border-radius: 5px; /* Add border-radius to make the input box rounded */
+    outline: none; /* Remove default input outline */
+    box-sizing: border-box; /* Include padding and border in the input's total width */
+  }
+
+  .quantity-input-container {
+    margin-right: 10px;
+  }
+  
+  .add-to-cart-button {
+  font-size: 16px;
+  margin-top: 10px; /* Add space between the quantity input and the button */
+  padding: 8px 12px;
+  background-color: #3498db; /* Set the background color for the button */
+  color: #fff; /* Set the font color for the button */
+  border: none;
+  border-radius: 5px; /* Add border-radius to make the button rounded */
+  cursor: pointer;
+}
+
+  
+  /* Add additional styling as needed */
+  

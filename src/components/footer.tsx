@@ -1,36 +1,59 @@
-import React from 'react';
-import './footer.css';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
 
-const Footer: React.FC = () => {
+import { Link } from 'react-router-dom'
+import "./footer.css"
 
-  const navigate = useNavigate();
-  
-  const handleAbout = () => {
-    navigate('/about');
-  }
+const Footer = () => {
+    const [email, setEmail] = useState('');
 
-  const handleContact = () => {
-    navigate('/contact');
-  }
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
 
-  return (
-    <div className="footer-basic">
-      <footer>
-        <div className="social">
-          <a href="#"><i className="icon ion-social-instagram"></i></a>
-          <a href="#"><i className="icon ion-social-snapchat"></i></a>
-          <a href="#"><i className="icon ion-social-twitter"></i></a>
-          <a href="#"><i className="icon ion-social-facebook"></i></a>
-        </div>
-        <ul className="list-inline">
-          <li className="list-inline-item" onClick = {handleAbout}> <a href="#">About Us</a></li>
-          <li className="list-inline-item" onClick = {handleContact}><a href="#">Contact Us</a></li>
-        </ul>
-        <p className="copyright">Eous© 2023</p>
-      </footer>
-    </div>
-  );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setEmail('');
+      };
+
+    return (
+        <footer>
+            <div className="footer-container container">
+                <div className="content_1">
+                <Link to="/about">
+                        EOSU
+                </Link>
+                    <p>At the core of our business philosophy lies a deep appreciation for our customers.<br /> 
+                    Our distinctive business model is intricately woven with thoughtful design, creating <br /> a unique and delightful shopping experience for you.</p>
+                    <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+                </div>
+                <div className="content_3">
+                    <h4>SHOPPING</h4>
+                    <Link to="/about"><a href="#">About Us</a></Link>
+                    <a href="https://delivery-status-sb.netlify.app/" target="_blank" rel="noopener noreferrer">Delivery</a>
+                    <a href="" target="_blank" rel="noopener noreferrer">Return and Exchange</a>
+                </div>
+                <div className="content_4">
+                    <h4>NEWSLETTER</h4>
+                    <p>Be the first to know about new<br />arrivals, look books, sales & promos!</p>
+                    <form onSubmit={handleSubmit}>
+                        <div className="f-mail">
+                        <input
+                            type="email"
+                            placeholder="Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        <button type="submit">
+                            <i className='bx bx-envelope'></i>
+                        </button>
+                        </div>
+                    </form>
+                    <hr />
+                    </div>
+            </div>
+           
+        </footer>
+    );
 };
 
 export default Footer;
