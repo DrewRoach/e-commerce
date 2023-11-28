@@ -1,47 +1,75 @@
-import React, { useState } from 'react';
-import './header.css'; // Import your CSS file
-import {useNavigate} from 'react-router-dom';
-import logo from "../assets/glasses-clipart.png";
+import { useState, useContext } from "react";
+import { CartContext } from "../utils/cartcontext";
+import "./header.css"; // Import your CSS file
+import { useNavigate } from "react-router-dom";
+import ProductType from "../utils/types";
 
 const Navbar = () => {
   const [isChecked, setChecked] = useState(false);
-
+  const { cart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleCheckboxChange = () => {
     setChecked(!isChecked);
   };
-  
+
   const handleHome = () => {
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   const handleProducts = () => {
-    navigate('/products');
-  }
+    navigate("/products");
+  };
 
   const handleCart = () => {
-    navigate('/cart');
-  }
+    navigate("/cart");
+  };
 
   const handleContact = () => {
-    navigate('/contact');
+    navigate("/contact");
+  };
+
+  const getItemCount = ()=>{
+    let count = 0
+    cart.map((item)=>{
+      count += item.order_quantity
+    })
+
+    return count
   }
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <input type="checkbox" name="" id="checkbox" checked={isChecked} onChange={handleCheckboxChange} />
+        <input
+          type="checkbox"
+          name=""
+          id="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
         <div className="hamburger-lines">
           <span className="line line1"></span>
           <span className="line line2"></span>
           <span className="line line3"></span>
         </div>
-        <ul className={`menu-items ${isChecked ? 'show' : ''}`}>
-          <li onClick = {handleHome}><a href="#">Home</a></li>
-          <li onClick = {handleProducts}><a href="#">Shop</a></li>
-          <li onClick = {handleCart}><a href="#">Cart</a></li>
-          <li onClick = {handleContact}> <a href="#">Contact</a></li>
+        <ul className={`menu-items ${isChecked ? "show" : ""}`}>
+          <li onClick={handleHome}>
+            <a href="#">Home</a>
+          </li>
+          <li onClick={handleProducts}>
+            <a href="#">Shop</a>
+          </li>
+          <li onClick={handleCart}>
+            <>
+              <a href="#">Cart</a>
+              <span className="badge">{cart.length > 0 && getItemCount()}</span>
+            </>
+          </li>
+          <li onClick={handleContact}>
+            {" "}
+            <a href="#">Contact</a>
+          </li>
         </ul>
         <div className="logo">
           <p>EOSU</p>
