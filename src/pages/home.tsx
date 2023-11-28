@@ -13,7 +13,6 @@ const Home = ()  => {
                     <img src="https://i.postimg.cc/t403yfn9/home2.jpg" alt="img" />
                 </div>
                 <div className="home_txt">
-                    <p className="collectio">SUMMER COLLECTION</p>
                     <h2>FALL - WINTER<br />Collection 2023</h2>
                     <div className="home_label">
                         <p>A specialist label creating luxury essentials. Ethically crafted<br />with an unwavering commitment to exceptional quality.</p>

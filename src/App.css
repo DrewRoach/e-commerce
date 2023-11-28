@@ -127,3 +127,10 @@ article{
     background-color: #E91E63;
     color: white;
 }
+
+.orderForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
