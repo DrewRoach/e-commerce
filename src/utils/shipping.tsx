@@ -15,7 +15,7 @@ const ShippingForm = () => {
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { id, value } = e.target;
     setShippingDetails((prevDetails) => ({
       ...prevDetails,
@@ -114,14 +114,14 @@ const ShippingForm = () => {
             <span className="field__label" htmlFor="state">
               State
             </span>
-            <select
+            <input
               className="field__input"
+              type="text"
               id="state"
               value={shippingDetails.state}
               onChange={handleChange}
             >
-              <option value=""></option>
-            </select>
+            </input>
           </label>
         </div>
       </div>

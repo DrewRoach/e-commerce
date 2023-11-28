@@ -32,6 +32,7 @@ class Shipping(BaseModel):
     state: str
     zip_code: int
 
+
 @app.post("/")
 async def get_shipping(shipping: Shipping):
     # if shipping:
