@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CartContext } from "../utils/cartcontext";
-import { ProductInformation } from "../components/productInformation";
 import { Link } from "react-router-dom";
 import ProductType from "../utils/types";
 import "./cart.css";
@@ -11,46 +10,73 @@ export const Cart = () => {
   return (
     <div className="cartContainer">
       <ul className="cartList">
-        {cart.map((product: ProductType, index: number) => {
-          let price = product.order_quantity * product.price;
-          tP += price;
-          return (
-            <>
-              <div className="cartItem">
-                <img
-                  src={product.img}
-                  alt={product.product_name}
-                  className="productImage"
-                />
-                <p>Quantity: {product.order_quantity}</p>
-                <p>Total: {price}</p>
-                <div className="addRemoveButtons">
-                  <button
-                    disabled={cart[index].order_quantity >= product.quantity}
-                    onClick={() => handleAddToCart!(product, 1)}
-                    style={{ marginRight: 20 }}
-                  >
-                    +
-                  </button>
-                  <button onClick={() => handleRemove!(index)}>-</button>
-                </div>
-                <br />
-                <button
-                  onClick={() => handleDelete!(index)}
-                >
-                  remove
-                </button>
-              </div>
-            </>
-          );
-        })}
+        {cart.length > 0 ? (
+          <>
+            {cart.map((product: ProductType, index: number) => {
+              let price = product.order_quantity * product.price;
+              tP += price;
+              return (
+                <>
+                  <div className="cartItem">
+                    <img
+                      src={product.img}
+                      alt={product.product_name}
+                      className="productImage"
+                    />
+                    <p>Quantity: {product.order_quantity}</p>
+                    <p>Total: {price.toFixed(2)}</p>
+                    <div className="addRemoveButtons">
+                      <button
+                        className="cartButton"
+                        disabled={
+                          cart[index].order_quantity >= product.quantity
+                        }
+                        onClick={() => handleAddToCart!(product, 1)}
+                        style={
+                          cart[index].order_quantity >= product.quantity
+                            ? { marginRight: 20, pointerEvents: "none" }
+                            : { marginRight: 20 }
+                        }
+                      >
+                        +
+                      </button>
+                      <button
+                        className="cartButton"
+                        onClick={() => handleRemove!(index)}
+                        style={{ marginLeft: 10 }}
+                      >
+                        -
+                      </button>
+                    </div>
+                    <br />
+                    <button
+                      className="cartButton"
+                      style={{ border: "2px solid" }}
+                      onClick={() => handleDelete!(index)}
+                    >
+                      remove
+                    </button>
+                  </div>
+                </>
+              );
+            })}
+          </>
+        ) : (
+          <>
+            <h2 style={{ textAlign: "center" }}>Cart is empty</h2>
+          </>
+        )}
       </ul>
       <div className="shippingContainer">
-        <p>Total Price: ${tP}</p>
+        <p>Total Price: ${tP.toFixed(2)}</p>
         <p>Total number of products {cart.length}</p>
-        <Link to={"/shipping"}>
-          <button> Checkout</button>
-        </Link>
+        {cart.length > 0 && (
+          <>
+            <Link to={"/shipping"}>
+              <button> Checkout</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
