@@ -1,8 +1,9 @@
+
 import { useState, useContext } from "react";
 import { CartContext } from "../utils/cartcontext";
 import "./header.css"; // Import your CSS file
 import { useNavigate } from "react-router-dom";
-import ProductType from "../utils/types";
+
 
 const Navbar = () => {
   const [isChecked, setChecked] = useState(false);
@@ -72,7 +73,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="logo">
-          <p>EOSU</p>
+        <Link to="/"><a href="#"><p>EOSU</p></a></Link>
         </div>
       </div>
     </nav>
