@@ -65,16 +65,16 @@ article{
 }
 
 .cartContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vw;
 }
 
 .cartItem{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    border-style: solid;
+    justify-content: space-evenly;
+    border-bottom: solid;
     margin-bottom: 20px;
    
 }
@@ -84,9 +84,33 @@ article{
 .cartList{
     margin: 0;
     padding: 0;
-    width: 50%;
+    grid-column: span all;
 }
 
 .addRemoveButtons{
     display: flex;
+}
+
+.shippingContainer{
+    background-color: #E91E63;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.shippingContainer p{
+    color: lightgray;
+    font-size: las;
+}
+
+.shippingContainer button{
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    margin-top: 50px;
 }
