@@ -74,7 +74,7 @@ article{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom: solid;
+    border-bottom: solid lightgray;
     margin-bottom: 20px;
    
 }
@@ -101,7 +101,7 @@ article{
 
 .shippingContainer p{
     color: lightgray;
-    font-size: las;
+    font-size: large;
 }
 
 .shippingContainer button{
@@ -113,4 +113,17 @@ article{
     padding-right: 20px;
 
     margin-top: 50px;
+}
+
+.cartButton{
+    background-color: white;
+    border: 1px solid #E91E63;
+    border-radius: 25%;
+    color: #E91E63;
+
+}
+
+.cartButton:hover{
+    background-color: #E91E63;
+    color: white;
 }
