@@ -14,6 +14,7 @@ import ContactUs from "./pages/contactUs";
 import Products from "./pages/productPage";
 import ShippingForm from "./utils/shipping";
 import ProductDetails from "./pages/productDetails"
+import Returns from "./pages/returns"
 export const App = () => {
   return (
     <div>
@@ -32,6 +33,7 @@ export const App = () => {
             <Route path="/contact" element={<ContactUs/>}/>
             <Route path="/shipping" element={<ShippingForm/>}/>
             <Route path="/productDetails" element={<ProductDetails/>}/>
+            <Route path="/returns" element={<Returns/>}/>
           </Routes>
           <MyHead />
           <Footer />
