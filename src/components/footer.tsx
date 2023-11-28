@@ -19,9 +19,7 @@ const Footer = () => {
         <footer>
             <div className="footer-container container">
                 <div className="content_1">
-                <Link to="/about">
-                        EOSU
-                </Link>
+                <p>EOSU</p>
                     <p>At the core of our business philosophy lies a deep appreciation for our customers.<br /> 
                     Our distinctive business model is intricately woven with thoughtful design, creating <br /> a unique and delightful shopping experience for you.</p>
                     <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />

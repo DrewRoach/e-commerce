@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './header.css'; // Import your CSS file
+import { Link } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom';
 import logo from "../assets/glasses-clipart.png";
 
@@ -44,7 +45,7 @@ const Navbar = () => {
           <li onClick = {handleContact}> <a href="#">Contact</a></li>
         </ul>
         <div className="logo">
-          <p>EOSU</p>
+        <Link to="/"><a href="#"><p>EOSU</p></a></Link>
         </div>
       </div>
     </nav>
