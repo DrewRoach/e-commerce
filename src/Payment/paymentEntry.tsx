@@ -334,7 +334,7 @@ export const PaymentEntry = () => {
               className="b-main-color pointer"
               onClick={handleSubmit}
             >
-              Pay Now
+              Review Order
             </button>
           </div>
         </div>

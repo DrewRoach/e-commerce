@@ -9,7 +9,7 @@ import { CartContext } from "./utils/cartcontext";
 const Confirm = () => {
   const navigate = useNavigate();
 
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const handleSubmit = () => {
     // alert(order.card_holder_name)
     navigate("/order");
@@ -21,6 +21,11 @@ const Confirm = () => {
       runningTotal += item.price * item.order_quantity;
     });
     return runningTotal;
+  };
+
+  const handlePlaceOrder = () => {
+    clearCart!();
+    navigate("/");
   };
 
   let { state } = useLocation();
@@ -67,16 +72,16 @@ const Confirm = () => {
             <p>Subtotal: </p>
             <p>{getTotalPrice()}</p>
             <p>Sales Tax:</p>
-            <p>{getTotalPrice() * 0.2}</p>
+            <p>{(getTotalPrice() * 0.2).toFixed(2)}</p>
             <p>Delivery:</p>
             <p>FREE</p>
           </div>
           <hr />
           <div className="total-grid">
             <h3>Total</h3>
-            <h4>${getTotalPrice() + getTotalPrice() * 0.2}</h4>
+            <h4>${(getTotalPrice() + getTotalPrice() * 0.2).toFixed(2)}</h4>
           </div>
-          <button>Place Order</button>
+          <button onClick={handlePlaceOrder}>Place Order</button>
         </div>
       </div>
     </div>
