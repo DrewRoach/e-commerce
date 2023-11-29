@@ -124,7 +124,6 @@ export const PaymentEntry = () => {
                 <strong>Card Number</strong>
                 <span>Enter 16-digit card number on the card</span>
               </div>
-              <div className="f-main-color pointer"><i className="ai-pencil"></i> Edit</div>
             </div>
 
             {/* Card Field */}
