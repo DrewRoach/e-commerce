@@ -39,6 +39,7 @@
 .shippingInfoContainer {
   padding: 20px;
   border-top: 1px solid gray;
+  line-height: .5em;
 }
 
 .editButton {
@@ -85,4 +86,38 @@
 
 button {
   margin-top: 20px;
+}
+
+
+.orderSummaryContainer {
+  margin-top: 10px;
+}
+
+.total-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 10px;
+  padding: 0px 20px;
+}
+
+.paymentInfoContainer {
+  border-bottom: 2px solid #aaaaaa;
+}
+
+.placeOrderButton {
+  background-color: white;
+  border: 1px solid #e91e63;
+  border-radius: 16px;
+  color: #e91e63;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.placeOrderButton:hover {
+  background-color: #e91e63;
+  color: white;
 }
