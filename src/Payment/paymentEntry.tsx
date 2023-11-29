@@ -229,14 +229,14 @@ export const PaymentEntry = () => {
                 <strong>EOSU</strong>
               </li>
               {cart.map((product: ProductType, index: number) => {
-              let price = product.quantity * product.price
+              let price = product.order_quantity * product.price
               tP += price;
               return (
                 <>
                     
                     <li className="flex-between">
                     <span>Product</span>
-                    <strong>{product.product_name}</strong>
+                    <strong>{product.product_name} (x{product.order_quantity})</strong>
                   </li>
                   
                 </>
@@ -244,7 +244,7 @@ export const PaymentEntry = () => {
             })}
               <li className="flex-between">
                 <span>Tax (20%)</span>
-                <strong>{tP}</strong>
+                <strong>{(tP += tP * .20).toFixed(2)}</strong>
               </li>
             </ul>
           </div>
@@ -253,8 +253,8 @@ export const PaymentEntry = () => {
             <div className="flex-fill flex-vertical">
               <div className="total-label f-secondary-color">You have to Pay</div>
               <div>
-                <strong>{tP}</strong>
-                <small>.99 <span className="f-secondary-color">USD</span></small>
+                <strong>{tP.toFixed(2)}</strong>
+                <small> <span className="f-secondary-color">USD</span></small>
               </div>
             </div>
             <i className="ai-coin size-lg"></i>
