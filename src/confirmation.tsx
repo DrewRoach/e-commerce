@@ -10,7 +10,7 @@ import { CartContext } from "./utils/cartcontext";
 const Confirm = () => {
   const navigate = useNavigate();
 
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const handleSubmit = () => {
     // alert(order.card_holder_name)
     navigate("/order");
@@ -25,6 +25,11 @@ const Confirm = () => {
       runningTotal += item.price * item.order_quantity;
     });
     return runningTotal;
+  };
+
+  const handlePlaceOrder = () => {
+    clearCart!();
+    navigate("/");
   };
 
   let { state } = useLocation();

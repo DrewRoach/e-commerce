@@ -67,7 +67,7 @@ article{
 .cartContainer{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    height: 100vw;
+    height: 100vh;
 }
 
 .cartItem{
@@ -75,14 +75,12 @@ article{
     align-items: center;
     justify-content: space-evenly;
     border-bottom: solid lightgray;
-    margin-bottom: 20px;
-   
+    /* margin-bottom: 20px; */
+    padding: 20px 0;
 }
 
-
-
 .cartList{
-    margin: 0;
+    margin: 10px 0 0;
     padding: 0;
     grid-column: span all;
 }
