@@ -63,7 +63,7 @@ export const Cart = () => {
           </>
         ) : (
           <>
-            <h2 style={{ textAlign: "center" }}>Cart is empty</h2>
+            <h2 className="pageHeader">Cart is empty</h2>
           </>
         )}
       </ul>

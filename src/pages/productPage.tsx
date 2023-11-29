@@ -65,7 +65,7 @@ const Products = () => {
     //   </div>
     // </main>
     <div>
-      <h1 style={{textAlign:"center"}}>All Products</h1>
+      <h1 className="pageHeader">All Products</h1>
       {products.map(product => {return(
         <Product {...product}/>
       )})}
