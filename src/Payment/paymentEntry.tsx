@@ -4,13 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../utils/cartcontext";
 import axios from "axios";
 import ProductType from "../utils/types";
+import "./creditCard.css"
+import { ProductInformation } from "../components/productInformation";
 
 interface postOrder{
   product_id: number;
   quantity: number;
 }
-const PaymentEntry = () => {
-  const { cart, clearCart} = useContext(CartContext);
+export const PaymentEntry = () => {
+  const { cart} =
+    useContext(CartContext);
+  let tP = 0;
+  // Access cart data from the state
   const [order, setOrder] = useState({
     phone_number: "",
     credit_card_number: "",
@@ -88,332 +93,174 @@ const PaymentEntry = () => {
     ).catch(function(err){
         console.log(err)
     })
-
-
-    navigate("/confirm", { state: { order } });
+   
+      navigate("/confirm", { state: { order } });
   };
 
-  const cardFrontStyle: React.CSSProperties = {
-    enableBackground: "new 0 0 750 471",
-  };
-
+  
   return (
-    <div>
-      <div className="payment-title">
-        <h1>Payment Information</h1>
-      </div>
-      <div className="body">
-        <div className="container preload">
-          <div className="creditcard">
-            <div className="front">
-              <div id="ccsingle"></div>
-              <svg
-                version="1.1"
-                id="cardfront"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 750 471"
-                style={cardFrontStyle}
-                xmlSpace="preserve"
-              >
-                <g id="Front">
-                  <g id="CardBackground">
-                    <g id="Page-1_1_">
-                      <g id="amex_1_">
-                        <path
-                          id="Rectangle-1_1_"
-                          className="lightcolor grey"
-                          d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
-                                    C0,17.9,17.9,0,40,0z"
-                        />
-                      </g>
-                    </g>
-                    <path
-                      className="darkcolor greydark"
-                      d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z"
-                    />
-                  </g>
-                  <text
-                    transform="matrix(1 0 0 1 60.106 295.0121)"
-                    id="svgnumber"
-                    className="st2 st3 st4"
-                  >
-                    0123 4567 8910 1112
-                  </text>
-                  <text
-                    transform="matrix(1 0 0 1 54.1064 428.1723)"
-                    id="svgname"
-                    className="st2 st5 st6"
-                  >
-                    JOHN DOE
-                  </text>
-                  <text
-                    transform="matrix(1 0 0 1 54.1074 389.8793)"
-                    className="st7 st5 st8"
-                  >
-                    cardholder name
-                  </text>
-                  <text
-                    transform="matrix(1 0 0 1 479.7754 388.8793)"
-                    className="st7 st5 st8"
-                  >
-                    expiration
-                  </text>
-                  <text
-                    transform="matrix(1 0 0 1 65.1054 241.5)"
-                    className="st7 st5 st8"
-                  >
-                    card number
-                  </text>
-                  <g>
-                    <text
-                      transform="matrix(1 0 0 1 574.4219 433.8095)"
-                      id="svgexpire"
-                      className="st2 st5 st9"
-                    >
-                      01/23
-                    </text>
-                    <text
-                      transform="matrix(1 0 0 1 479.3848 417.0097)"
-                      className="st2 st10 st11"
-                    >
-                      VALID
-                    </text>
-                    <text
-                      transform="matrix(1 0 0 1 479.3848 435.6762)"
-                      className="st2 st10 st11"
-                    >
-                      THRU
-                    </text>
-                    <polygon
-                      className="st2"
-                      points="554.5,421 540.4,414.2 540.4,427.9 		"
-                    />
-                  </g>
-                  <g id="cchip">
-                    <g>
-                      <path
-                        className="st2"
-                        d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
-                                c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z"
-                      />
-                    </g>
-                    <g>
-                      <g>
-                        <rect
-                          x="82"
-                          y="70"
-                          className="st12"
-                          width="1.5"
-                          height="60"
-                        />
-                      </g>
-                      <g>
-                        <rect
-                          x="167.4"
-                          y="70"
-                          className="st12"
-                          width="1.5"
-                          height="60"
-                        />
-                      </g>
-                      <g>
-                        <path
-                          className="st12"
-                          d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
-                                    c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
-                                    C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
-                                    c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
-                                    c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z"
-                        />
-                      </g>
-                      <g>
-                        <rect
-                          x="82.8"
-                          y="82.1"
-                          className="st12"
-                          width="25.8"
-                          height="1.5"
-                        />
-                      </g>
-                      <g>
-                        <rect
-                          x="82.8"
-                          y="117.9"
-                          className="st12"
-                          width="26.1"
-                          height="1.5"
-                        />
-                      </g>
-                      <g>
-                        <rect
-                          x="142.4"
-                          y="82.1"
-                          className="st12"
-                          width="25.8"
-                          height="1.5"
-                        />
-                      </g>
-                      <g>
-                        <rect
-                          x="142"
-                          y="117.9"
-                          className="st12"
-                          width="26.2"
-                          height="1.5"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-                <g id="Back"></g>
-              </svg>
+    
+    <div className="screen flex-center">
+      <form className="popup flex p-lg">
+        <div className="close-btn pointer flex-center p-sm">
+          <i className="ai-cross"></i>
+        </div>
+        {/* CARD FORM */}
+        <div className="flex-fill flex-vertical">
+          <div className="header flex-between flex-vertical-center">
+            <div className="flex-vertical-center">
+              <i className="ai-bitcoin-fill size-xl pr-sm f-main-color"></i>
+              <span className="title">
+                <strong>AceCoin</strong>
+                <span>Pay</span>
+              </span>
+            </div> 
+          </div>
+          <div className="card-data flex-fill flex-vertical">
+
+            {/* Card Number */}
+            <div className="flex-between flex-vertical-center">
+              <div className="card-property-title">
+                <strong>Card Number</strong>
+                <span>Enter 16-digit card number on the card</span>
+              </div>
+              <div className="f-main-color pointer"><i className="ai-pencil"></i> Edit</div>
             </div>
-            <div className="back">
-              <svg
-                version="1.1"
-                id="cardback"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 750 471"
-                style={cardFrontStyle}
-                xmlSpace="preserve"
-              >
-                <g id="Front">
-                  <line className="st0" x1="35.3" y1="10.4" x2="36.7" y2="11" />
-                </g>
-                <g id="Back">
-                  <g id="Page-1_2_">
-                    <g id="amex_2_">
-                      <path
-                        id="Rectangle-1_2_"
-                        className="darkcolor greydark"
-                        d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
-                                C0,17.9,17.9,0,40,0z"
-                      />
-                    </g>
-                  </g>
-                  <rect y="61.6" className="st2" width="750" height="78" />
-                  <g>
-                    <path
-                      className="st3"
-                      d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
-                            C707.1,246.4,704.4,249.1,701.1,249.1z"
-                    />
-                    <rect
-                      x="42.9"
-                      y="198.6"
-                      className="st4"
-                      width="664.1"
-                      height="10.5"
-                    />
-                    <rect
-                      x="42.9"
-                      y="224.5"
-                      className="st4"
-                      width="664.1"
-                      height="10.5"
-                    />
-                    <path
-                      className="st5"
-                      d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z"
-                    />
-                  </g>
-                  <text
-                    transform="matrix(1 0 0 1 621.999 227.2734)"
-                    id="svgsecurity"
-                    className="st6 st7"
-                  >
-                    985
-                  </text>
-                  <g className="st8">
-                    <text
-                      transform="matrix(1 0 0 1 518.083 280.0879)"
-                      className="st9 st6 st10"
-                    >
-                      security code
-                    </text>
-                  </g>
-                  <rect
-                    x="58.1"
-                    y="378.6"
-                    className="st11"
-                    width="375.5"
-                    height="13.5"
-                  />
-                  <rect
-                    x="58.1"
-                    y="405.6"
-                    className="st11"
-                    width="421.7"
-                    height="13.5"
-                  />
-                  <text
-                    transform="matrix(1 0 0 1 59.5073 228.6099)"
-                    id="svgnameback"
-                    className="st12 st13"
-                  >
-                    John Doe
-                  </text>
-                </g>
-              </svg>
+
+            {/* Card Field */}
+            <div className="flex-between">
+              <div className="card-number flex-vertical-center flex-fill">
+                <div className="card-number-field flex-vertical-center flex-fill">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path fill="#ff9800" d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z"/><path fill="#d50000" d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z"/><path fill="#ff3d00" d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path fill="#F44336" d="M33 11A13 13 0 1 0 33 37A13 13 0 1 0 33 11Z"/><path fill="#2196F3" d="M28,24h-8c0-0.682,0.068-1.347,0.169-2h7.661c-0.105-0.685-0.255-1.354-0.464-2h-6.732c0.225-0.694,0.508-1.362,0.84-2h5.051c-0.369-0.709-0.804-1.376-1.293-2h-2.465c0.379-0.484,0.79-0.941,1.233-1.367c-0.226-0.218-0.455-0.432-0.696-0.633c-2.252-1.872-5.146-3-8.304-3C7.82,11,2,16.82,2,24s5.82,13,13,13c3.496,0,6.664-1.388,9-3.633c0.443-0.426,0.854-0.883,1.232-1.367h-2.465c-0.489-0.624-0.923-1.291-1.293-2h5.051c0.333-0.638,0.616-1.306,0.841-2h-6.732c-0.209-0.646-0.358-1.315-0.464-2h7.661C27.932,25.347,28,24.682,28,24z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path fill="#1565C0" d="M45,35c0,2.209-1.791,4-4,4H7c-2.209,0-4-1.791-4-4V13c0-2.209,1.791-4,4-4h34c2.209,0,4,1.791,4,4V35z"/><path fill="#FFF" d="M15.186 19l-2.626 7.832c0 0-.667-3.313-.733-3.729-1.495-3.411-3.701-3.221-3.701-3.221L10.726 30v-.002h3.161L18.258 19H15.186zM17.689 30L20.56 30 22.296 19 19.389 19zM38.008 19h-3.021l-4.71 11h2.852l.588-1.571h3.596L37.619 30h2.613L38.008 19zM34.513 26.328l1.563-4.157.818 4.157H34.513zM26.369 22.206c0-.606.498-1.057 1.926-1.057.928 0 1.991.674 1.991.674l.466-2.309c0 0-1.358-.515-2.691-.515-3.019 0-4.576 1.444-4.576 3.272 0 3.306 3.979 2.853 3.979 4.551 0 .291-.231.964-1.888.964-1.662 0-2.759-.609-2.759-.609l-.495 2.216c0 0 1.063.606 3.117.606 2.059 0 4.915-1.54 4.915-3.752C30.354 23.586 26.369 23.394 26.369 22.206z"/><path fill="#FFC107" d="M12.212,24.945l-0.966-4.748c0,0-0.437-1.029-1.573-1.029c-1.136,0-4.44,0-4.44,0S10.894,20.84,12.212,24.945z"/></svg>
+                    <input className="numbers" type="number" min="1" max="9999" placeholder="0000" />-
+                  <input className="numbers" type="number" placeholder="0000" />-
+                  <input className="numbers" type="number" placeholder="0000" />-
+                  <input className="numbers" type="number" placeholder="0000" data-bound="carddigits_mock" data-def="0000" />
+                </div>
+                <i className="ai-circle-check-fill size-lg f-main-color"></i>
+              </div>
+            </div>
+
+            {/* Expiry Date */}
+            <div className="flex-between">
+              <div className="card-property-title">
+                <strong>Expiry Date</strong>
+                <span>Enter the expiration date of the card</span>
+              </div>
+              <div className="card-property-value flex-vertical-center">
+                <div className="input-container half-width">
+                  <input className="numbers" data-bound="mm_mock" data-def="00" type="number" min="1" max="12" step="1" placeholder="MM" />
+                </div>
+                <span className="m-md">/</span>
+                <div className="input-container half-width">
+                  <input className="numbers" data-bound="yy_mock" data-def="01" type="number" min="23" max="99" step="1" placeholder="YY" />
+                </div>
+              </div>
+            </div>
+
+            {/* CCV Number */}
+            <div className="flex-between">
+              <div className="card-property-title">
+                <strong>CVC Number</strong>
+                <span>Enter card verification code from the back of the card</span>
+              </div>
+              <div className="card-property-value">
+                <div className="input-container">
+                  <input id="cvc" type="password" />
+                  <i id="cvc_toggler" data-target="cvc" className="ai-eye-open pointer"></i>
+                </div>
+              </div>
+            </div>
+
+            {/* Name */}
+            <div className="flex-between">
+              <div className="card-property-title">
+                <strong>Cardholder Name</strong>
+                <span>Enter cardholder's name</span>
+              </div>
+              <div className="card-property-value">
+                <div className="input-container">
+                  <input id="name" data-bound="name_mock" data-def="Mr. Cardholder" type="text" className="uppercase" placeholder="CARDHOLDER NAME" />
+                  <i className="ai-person"></i>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="form-container">
-          <div className="field-container">
-            <label htmlFor="name">Name</label>
-            <input id="name" maxLength={20} type="text" />
-          </div>
-          <div className="field-container">
-            <label htmlFor="cardnumber">Card Number</label>
-            <span id="generatecard"></span>
-            <input
-              id="cardnumber"
-              type="text"
-              pattern="[0-9]*"
-              inputMode="numeric"
-            />
-            <svg
-              id="ccicon"
-              className="ccicon"
-              width="750"
-              height="471"
-              viewBox="0 0 750 471"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-            ></svg>
-          </div>
-          <div className="field-container">
-            <label htmlFor="expirationdate">Expiration (mm/yy)</label>
-            <input
-              id="expirationdate"
-              type="text"
-              pattern="[0-9]*"
-              inputMode="numeric"
-            />
-          </div>
-          <div className="field-container">
-            <label htmlFor="securitycode">Security Code</label>
-            <input
-              id="securitycode"
-              type="text"
-              pattern="[0-9]*"
-              inputMode="numeric"
-            />
+          <div className="action flex-center">
+            <button type="submit" className="b-main-color pointer" onClick={handleSubmit}>Pay Now</button>
           </div>
         </div>
-      </div>
-      <div className = "center-container">
-        <button className="buttonPayment" onClick={handleSubmit}>
-          Confirm Payment
-        </button>
-      </div>
+
+        {/* SIDEBAR */}
+        <div className="sidebar flex-vertical">
+          <div></div>
+          <div className="purchase-section flex-fill flex-vertical">
+
+            <div className="card-mockup flex-vertical">
+              <div className="flex-fill flex-between">
+                <i className="ai-bitcoin-fill size-xl f-secondary-color"></i>
+                <i className="ai-wifi size-lg f-secondary-color"></i>
+              </div>
+              <div>
+                <div id="name_mock" className="size-md pb-sm uppercase ellipsis">mr. Cardholder</div>
+                <div className="size-md pb-md">
+                  <strong>
+                    <span className="pr-sm">
+                      &#x2022;&#x2022;&#x2022;&#x2022;
+                    </span>
+                    <span id="carddigits_mock">0000</span>
+                  </strong>
+                </div>
+                <div className="flex-between flex-vertical-center">
+                  <strong className="size-md">
+                    <span id="mm_mock">00</span>/<span id="yy_mock">01</span>
+                  </strong>
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path fill="#ff9800" d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z"/><path fill="#d50000" d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z"/><path fill="#ff3d00" d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path fill="#1565C0" d="M45,35c0,2.209-1.791,4-4,4H7c-2.209,0-4-1.791-4-4V13c0-2.209,1.791-4,4-4h34c2.209,0,4,1.791,4,4V35z"/><path fill="#FFF" d="M15.186 19l-2.626 7.832c0 0-.667-3.313-.733-3.729-1.495-3.411-3.701-3.221-3.701-3.221L10.726 30v-.002h3.161L18.258 19H15.186zM17.689 30L20.56 30 22.296 19 19.389 19zM38.008 19h-3.021l-4.71 11h2.852l.588-1.571h3.596L37.619 30h2.613L38.008 19zM34.513 26.328l1.563-4.157.818 4.157H34.513zM26.369 22.206c0-.606.498-1.057 1.926-1.057.928 0 1.991.674 1.991.674l.466-2.309c0 0-1.358-.515-2.691-.515-3.019 0-4.576 1.444-4.576 3.272 0 3.306 3.979 2.853 3.979 4.551 0 .291-.231.964-1.888.964-1.662 0-2.759-.609-2.759-.609l-.495 2.216c0 0 1.063.606 3.117.606 2.059 0 4.915-1.54 4.915-3.752C30.354 23.586 26.369 23.394 26.369 22.206z"/><path fill="#FFC107" d="M12.212,24.945l-0.966-4.748c0,0-0.437-1.029-1.573-1.029c-1.136,0-4.44,0-4.44,0S10.894,20.84,12.212,24.945z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <ul className="purchase-props">
+              <li className="flex-between">
+                <span>Company</span>
+                <strong>EOSU</strong>
+              </li>
+              {cart.map((product: ProductType, index: number) => {
+              let price = product.quantity * product.price
+              tP += price;
+              return (
+                <>
+                    
+                    <li className="flex-between">
+                    <span>Product</span>
+                    <strong>{product.product_name}</strong>
+                  </li>
+                  
+                </>
+              );
+            })}
+              <li className="flex-between">
+                <span>Tax (20%)</span>
+                <strong>{tP}</strong>
+              </li>
+            </ul>
+          </div>
+          <div className="separation-line"></div>
+          <div className="total-section flex-between flex-vertical-center">
+            <div className="flex-fill flex-vertical">
+              <div className="total-label f-secondary-color">You have to Pay</div>
+              <div>
+                <strong>{tP}</strong>
+                <small>.99 <span className="f-secondary-color">USD</span></small>
+              </div>
+            </div>
+            <i className="ai-coin size-lg"></i>
+          </div>
+        </div>
+      </form>
     </div>
   );
 };

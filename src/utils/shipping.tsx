@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProductType from './types';
 import './shipping.css'; // Assuming paymentEntry.css contains your styles
 
-const ShippingForm = () => {
+interface ShippingFormProps {
+  cart: ProductType[]; // Specify the type of the cart prop
+}
+
+const ShippingForm: React.FC<ShippingFormProps> = ({ cart }) => {
   const [shippingDetails, setShippingDetails] = useState({
     firstname: '',
     lastname: '',
@@ -27,12 +32,13 @@ const ShippingForm = () => {
 
   const handleSubmit = () => {
     // Check if all required fields are filled before navigating
-    if (Object.values(shippingDetails).every((value) => value !== '')) {
-      navigate('/payment', { state: { shippingDetails } });
-    } else {
-      // Optionally, you can display an error message or handle it as needed
-      alert('Please fill in all required fields.');
-    }
+    navigate('/payment', { state: { shippingDetails}  });
+    // if (Object.values(shippingDetails).every((value) => value !== '')) {
+    //   navigate('/payment', { state: { shippingDetails } });
+    // } else {
+    //   // Optionally, you can display an error message or handle it as needed
+    //   alert('Please fill in all required fields.');
+    // }
   };
 
   return (
@@ -53,7 +59,7 @@ const ShippingForm = () => {
               value={shippingDetails.firstname}
               onChange={handleChange}
               placeholder="John"
-              required
+             
             />
           </label>
           <label className="field"  htmlFor="lastname">
@@ -67,7 +73,7 @@ const ShippingForm = () => {
               value={shippingDetails.lastname}
               onChange={handleChange}
               placeholder="Smith"
-              required
+         
             />
           </label>
         </div>
@@ -82,7 +88,7 @@ const ShippingForm = () => {
             value={shippingDetails.address}
             onChange={handleChange}
             placeholder="235 West Norwich Ave"
-            required
+            
           />
         </label>
         <label className="field" htmlFor="country">
@@ -94,7 +100,7 @@ const ShippingForm = () => {
             id="country"
             value={shippingDetails.country}
             onChange={handleChange}
-            required
+            
           >
             <option value=""></option>
             <option value="unitedstates">United States</option>
@@ -112,7 +118,7 @@ const ShippingForm = () => {
               value={shippingDetails.zipcode}
               onChange={handleChange}
               placeholder="44202"
-              required
+              
             />
           </label>
           <label className="field" htmlFor="city">
@@ -126,7 +132,7 @@ const ShippingForm = () => {
               value={shippingDetails.city}
               onChange={handleChange}
               placeholder="Cleveland"
-              required
+              
             />
           </label>
           <label className="field" htmlFor="state">
@@ -140,7 +146,7 @@ const ShippingForm = () => {
               value={shippingDetails.state}
               onChange={handleChange}
               placeholder="Ohio"
-              required
+              
             >
             </input>
           </label>

@@ -1,12 +1,16 @@
 import { useContext } from "react";
 import { CartContext } from "../utils/cartcontext";
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import ProductType from "../utils/types";
 import "./cart.css";
 export const Cart = () => {
   const { cart, handleRemove, handleAddToCart, handleDelete } =
     useContext(CartContext);
   let tP = 0;
+  const navigate = useNavigate();
+  const handleSubmit = () => { 
+    navigate('/shipping', { state: { cart } });
+  }
   return (
     <div className="cartContainer">
       <ul className="cartList">
@@ -72,9 +76,7 @@ export const Cart = () => {
         <p>Total number of products {cart.length}</p>
         {cart.length > 0 && (
           <>
-            <Link to={"/shipping"}>
-              <button> Checkout</button>
-            </Link>
+              <button onClick={handleSubmit}> Checkout</button>
           </>
         )}
       </div>

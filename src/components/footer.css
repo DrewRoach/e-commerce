@@ -1,7 +1,10 @@
 
-footer {
+.footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  background: #f5f5f5;
+  z-index: 1000;
+ 
 }
 
 .footer-container .content_1 img {
@@ -41,7 +44,7 @@ footer {
 .footer-container .content_4 input[type="email"] {
   background-color: var(--black);
   border: none;
-  color: black
+  color: black;
   outline: none;
   padding: 15px 0;
 }
