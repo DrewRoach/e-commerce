@@ -1,4 +1,5 @@
 /* confirmStyles.css */
+
 .confirm-container {
   display: flex;
   flex-direction: column;
@@ -7,44 +8,81 @@
   min-height: 100vh;
 }
 
-/* Center the table within the container */
-.confirm-container table {
-  margin: 0 auto;
-}
-
-.userInfoContainer{
-  padding-right: 30px;
-}
-.orderReviewContainer{
+.orderReviewContainer {
   display: grid;
   margin-left: 10%;
-  margin-right: 20%;
-  grid-template-columns: 3fr 1fr;
-  line-height: .75em;
+  margin-right: 10%;
+  grid-template-columns: 1fr 1fr;
+  line-height: 1.5em;
   height: 100vh;
 }
 
-.shippingInfoContainer{
-  line-height: .1em;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
+.orderStatusContainer {
+  /* Add styles for the order status bar at the top */
 }
 
-.totalsContainer{
-  border: 1px solid black;
+.userInfoContainer {
+  grid-column: 1;
+  padding-right: 80px;
 }
 
-.orderSummaryContainer{
+.shippingAndReviewContainer {
+  grid-column: 1;
+  padding-right: 30px;
+  margin-bottom: 40px; /* Increase the space between shipping info and order information */
+}
+
+.reviewAndOrderParagraph {
+  margin-top: 20px; /* Add space between shipping and review paragraph */
+}
+
+.shippingInfoContainer {
+  padding: 20px;
+  border-top: 1px solid gray;
+}
+
+.editButton {
   margin-top: 10px;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
 }
 
+.paymentInfoContainer {
+  grid-column: 1;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid gray; /* Add a line to separate shipping and payment */
+}
 
-.total-grid{
+.paymentInfoContainer h2 {
+  margin-top: 10px; /* Add space between payment info heading and line */
+}
+
+.order-summary {
+  display: grid;
+  grid-template-columns: 1fr; /* Adjust column layout as needed */
+  justify-content: end; /* Align content to the right side */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  /* Add any other styles you need for the order summary box */
+}
+
+.totalsContainer {
+  border: 1px solid #ccc;
+  padding: 20px;
+  justify-content: flex-end; 
+}
+
+.total-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-left: 10px;
+  gap: 10px;
+  justify-content: flex-end; /* Align content to the right side */
+  padding-right: 60px; /* Add padding to the right for additional space */
 }
 
-.paymentInfoContainer{
-  border-bottom: 2px solid black;
+button {
+  margin-top: 20px;
 }
