@@ -1,10 +1,8 @@
-
 import { useState, useContext } from "react";
 import { CartContext } from "../utils/cartcontext";
 import "./header.css"; // Import your CSS file
 import { useNavigate } from "react-router-dom";
-
-
+import {Link } from 'react-router-dom'
 const Navbar = () => {
   const [isChecked, setChecked] = useState(false);
   const { cart } = useContext(CartContext);
@@ -30,14 +28,14 @@ const Navbar = () => {
     navigate("/contact");
   };
 
-  const getItemCount = ()=>{
-    let count = 0
-    cart.map((item)=>{
-      count += item.order_quantity
-    })
+  const getItemCount = () => {
+    let count = 0;
+    cart.map((item) => {
+      count += item.order_quantity;
+    });
 
-    return count
-  }
+    return count;
+  };
 
   return (
     <nav className="navbar">
@@ -73,7 +71,11 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="logo">
-        <Link to="/"><a href="#"><p>EOSU</p></a></Link>
+          <Link to="/">
+            <a href="#">
+              <p>EOSU</p>
+            </a>
+          </Link>
         </div>
       </div>
     </nav>
