@@ -5,16 +5,15 @@ import { Link } from "react-router-dom";
 import ProductType from "../utils/types";
 import "./cart.css"
 export const Order = () => {
-  const { cart, handleRemove, handleAddToCart, handleDelete } =
+  const { cart } =
     useContext(CartContext);
-  let tP = 0;
+
   return (
     <div className="cartContainer">
-      <h1>View Order</h1>
+      <h1>Order Summary</h1>
       <ul className="cartList">
         {cart.map((product: ProductType, index: number) => {
-          let price = product.quantity * product.price
-          tP += price;
+          let price = product.order_quantity * product.price
           return (
             <>
                 <div className="cartItem">
