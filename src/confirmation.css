@@ -1,4 +1,5 @@
 /* confirmStyles.css */
+
 .confirm-container {
   display: flex;
   flex-direction: column;
@@ -7,7 +8,81 @@
   min-height: 100vh;
 }
 
-/* Center the table within the container */
-.confirm-container table {
-  margin: 0 auto;
+.orderReviewContainer {
+  display: grid;
+  margin-left: 10%;
+  margin-right: 10%;
+  grid-template-columns: 1fr 1fr;
+  line-height: 1.5em;
+  height: 100vh;
+}
+
+.orderStatusContainer {
+  /* Add styles for the order status bar at the top */
+}
+
+.userInfoContainer {
+  grid-column: 1;
+  padding-right: 80px;
+}
+
+.shippingAndReviewContainer {
+  grid-column: 1;
+  padding-right: 30px;
+  margin-bottom: 40px; /* Increase the space between shipping info and order information */
+}
+
+.reviewAndOrderParagraph {
+  margin-top: 20px; /* Add space between shipping and review paragraph */
+}
+
+.shippingInfoContainer {
+  padding: 20px;
+  border-top: 1px solid gray;
+}
+
+.editButton {
+  margin-top: 10px;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.paymentInfoContainer {
+  grid-column: 1;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid gray; /* Add a line to separate shipping and payment */
+}
+
+.paymentInfoContainer h2 {
+  margin-top: 10px; /* Add space between payment info heading and line */
+}
+
+.order-summary {
+  display: grid;
+  grid-template-columns: 1fr; /* Adjust column layout as needed */
+  justify-content: end; /* Align content to the right side */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  /* Add any other styles you need for the order summary box */
+}
+
+.totalsContainer {
+  border: 1px solid #ccc;
+  padding: 20px;
+  justify-content: flex-end; 
+}
+
+.total-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-content: flex-end; /* Align content to the right side */
+  padding-right: 60px; /* Add padding to the right for additional space */
+}
+
+button {
+  margin-top: 20px;
 }

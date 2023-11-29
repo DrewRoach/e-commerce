@@ -7,7 +7,7 @@ interface ShippingFormProps {
   cart: ProductType[]; // Specify the type of the cart prop
 }
 
-const ShippingForm: React.FC<ShippingFormProps> = ({ cart }) => {
+const ShippingForm: React.FC<ShippingFormProps> = () => {
   const [shippingDetails, setShippingDetails] = useState({
     firstname: '',
     lastname: '',
@@ -32,7 +32,7 @@ const ShippingForm: React.FC<ShippingFormProps> = ({ cart }) => {
 
   const handleSubmit = () => {
     // Check if all required fields are filled before navigating
-    navigate('/payment', { state: { shippingDetails}  });
+    navigate('/payment', { state: { shippingInfo: shippingDetails}  });
     // if (Object.values(shippingDetails).every((value) => value !== '')) {
     //   navigate('/payment', { state: { shippingDetails } });
     // } else {

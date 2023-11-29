@@ -67,7 +67,7 @@ article{
 .cartContainer{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .cartItem{
