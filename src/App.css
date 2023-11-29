@@ -116,7 +116,7 @@ article{
 .cartButton{
     background-color: white;
     border: 1px solid #E91E63;
-    border-radius: 25%;
+    border-radius: 16px;
     color: #E91E63;
 
 }

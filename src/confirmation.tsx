@@ -40,13 +40,13 @@ const Confirm = () => {
 
   return (
     <div className="orderReviewContainer">
-      <OrderStatus/>
+      <OrderStatus />
       <div className="userInfoContainer">
         <h1>Review and Place Order</h1>
         <p>Your order will not be placed until you click "Place Order"</p>
         <p>
-          This will complete your order and charge your payment <br />method for the
-          amount due.
+          This will complete your order and charge your payment <br />
+          method for the amount due.
         </p>
         <div className="shippingInfoContainer">
           <h2>Shipping address</h2>
@@ -70,25 +70,31 @@ const Confirm = () => {
           </>
         </div>
       </div>
-      <div >
-        <div className="totalsContainer">
-          <h2>Order Summary</h2>
-          <div className="total-grid">
-            <p>Subtotal: ${getTotalPrice()}<br />Sales Tax: ${getTotalPrice() * 0.2}<br />Delivery: Free</p>
-          </div>
-          <hr />
-          <div className="total-grid">
-            <h3>Total:</h3>
-            <h4>${getTotalPrice() + getTotalPrice() * 0.2}</h4>
-          </div>
-          <div className="action flex-center">
-            <button
-              type="submit"
-              className="b-main-color pointer"
-              onClick={handleOrder}
-            >
-              Order Now
-            </button>
+      <div>
+        <div className="orderSummaryContainer">
+          <div className="totalsContainer">
+            <h2 style={{ paddingLeft: 5 }}>Order Summary</h2>
+            <div className="total-grid">
+              <p>Subtotal: </p>
+              <p>{getTotalPrice()}</p>
+              <p>Sales Tax:</p>
+              <p>{(getTotalPrice() * 0.2).toFixed(2)}</p>
+              <p>Delivery:</p>
+              <p>FREE</p>
+            </div>
+            <hr />
+            <div className="total-grid">
+              <h3>Total</h3>
+              <h4>${(getTotalPrice() + getTotalPrice() * 0.2).toFixed(2)}</h4>
+            </div>
+            <div className="action flex-center">
+              <button
+                onClick={handlePlaceOrder}
+                className="b-main-color pointer"
+              >
+                Place Order
+              </button>
+            </div>
           </div>
         </div>
       </div>
