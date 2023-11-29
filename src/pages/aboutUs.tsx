@@ -1,8 +1,8 @@
 import React from "react";
 import "./aboutUs.css";
 import LohithImage from "../assets/Lohith.jpg";
-import DrewImage from "../assets/IMG_6532.jpeg";
-import RonitImage from "../assets/20231008_232814.jpg";
+import DrewImage from "../assets/Drew.jpeg";
+import RonitImage from "../assets/Ronit.jpg";
 
 const teamMembers = [
   {
@@ -17,7 +17,7 @@ const teamMembers = [
     title: "CTO",
     image: DrewImage,
     description:
-      "Drew Arocha is our Chief Technology Officer. He is a senior at Ohio State University majoring in computer science. He oversees the technical aspects of our projects.",
+      "Drew Arocha is a senior at the Ohio state University majoring in Computer Science. He serves as our Chief Technology Officer. He oversees the technical aspects of our projects.",
   },
   {
     name: "Ronit Jain",
@@ -33,7 +33,7 @@ const AboutUs = () => {
   return (
     <div className="team-section">
       <div className="inner-width">
-        <h2>Meet our Team</h2>
+        <h2 className="pageHeader">Meet our Team</h2>
         <div className="pers">
           {teamMembers.map((teamMember, index) => (
             <div className="pe" key={index}>

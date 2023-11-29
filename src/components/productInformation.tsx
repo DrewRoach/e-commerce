@@ -35,18 +35,21 @@ export const ProductInformation = (data: ProductType) => {
                           <span className="product-grid__btn product-grid__add-to-cart" onClick={() => handleAddToCart!(data, 1)}>
                             <i className="fa fa-cart-arrow-down" ></i> Add to cart
                           </span>
+                          <Link to={`/productDetails`} state={{ data }}>
+                            <span className="product-grid__btn product-grid__view">
+                              <i className="fa fa-eye"></i> View more
+                            </span>
+                          </Link>
                           </>
                         </>
                       ) : (
                         <>
-                          <p>Sold out</p>
+                          <span className="product-grid__btn product-grid__view">
+                              <i className="fa fa-eye"></i> Sold Out
+                            </span>
                         </>
                       )}
-                    <Link to={`/productDetails`} state={{ data }}>
-                    <span className="product-grid__btn product-grid__view">
-                      <i className="fa fa-eye"></i> View more
-                    </span>
-                  </Link>
+                    
                   </div>
                 </div>
               </div>
