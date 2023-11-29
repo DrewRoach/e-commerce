@@ -11,3 +11,40 @@
 .confirm-container table {
   margin: 0 auto;
 }
+
+.userInfoContainer{
+  padding-right: 30px;
+}
+.orderReviewContainer{
+  display: grid;
+  margin-left: 10%;
+  margin-right: 20%;
+  grid-template-columns: 3fr 1fr;
+  line-height: .75em;
+  height: 100vh;
+}
+
+.shippingInfoContainer{
+  line-height: .1em;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.totalsContainer{
+  border: 1px solid black;
+}
+
+.orderSummaryContainer{
+  margin-top: 10px;
+}
+
+
+.total-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 10px;
+}
+
+.paymentInfoContainer{
+  border-bottom: 2px solid black;
+}
