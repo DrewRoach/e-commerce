@@ -51,7 +51,7 @@ const Footer = () => {
           <p>
             Be the first to know about new
             <br />
-            arrivals, look books, sales & promos!
+            arrivals, look book, sales & promos!
           </p>
           <form onSubmit={handleSubmit}>
             <div className="f-mail">

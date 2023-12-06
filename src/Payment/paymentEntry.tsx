@@ -419,9 +419,12 @@ export const PaymentEntry = () => {
                     <li className="flex-between">
                       <span>Product</span>
                       <strong>
-                        {product.product_name} (x{product.order_quantity})
+                        {product.product_name} 
                       </strong>
                     </li>
+                    <span style={{ color: "#aaaaaa" }}>
+                      Qty: {product.order_quantity}
+                    </span>
                   </>
                 );
               })}

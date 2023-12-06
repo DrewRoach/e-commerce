@@ -15,6 +15,8 @@ import Products from "./pages/productPage";
 import ShippingForm from "./utils/shipping";
 import ProductDetails from "./pages/productDetails"
 import Returns from "./pages/returns"
+import Thanks from "./pages/thanks";
+
 export const App = () => {
   return (
     <div>
@@ -34,6 +36,7 @@ export const App = () => {
             <Route path="/shipping" element={<ShippingForm/>}/>
             <Route path="/productDetails" element={<ProductDetails/>}/>
             <Route path="/returns" element={<Returns/>}/>
+            <Route path="/thanks" element={<Thanks/>}/>
           </Routes>
           <MyHead />
           <Footer />

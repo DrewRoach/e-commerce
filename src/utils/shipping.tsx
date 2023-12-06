@@ -11,6 +11,7 @@ const ShippingForm: React.FC<ShippingFormProps> = () => {
   const [shippingDetails, setShippingDetails] = useState({
     firstname: '',
     lastname: '',
+    email: '',
     address: '',
     country: '',
     zipcode: '',
@@ -77,6 +78,20 @@ const ShippingForm: React.FC<ShippingFormProps> = () => {
             />
           </label>
         </div>
+        <label className="field" htmlFor="address">
+          <span className="field__label" >
+            Email*
+          </span>
+          <input
+            className="field__input"
+            type="text"
+            id="email"
+            value={shippingDetails.email}
+            onChange={handleChange}
+            placeholder="ilovethisclass@gmail.com"
+            
+          />
+        </label>
         <label className="field" htmlFor="address">
           <span className="field__label" >
             Address *

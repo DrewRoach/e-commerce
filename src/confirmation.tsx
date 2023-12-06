@@ -28,8 +28,7 @@ const Confirm = () => {
   };
 
   const handlePlaceOrder = () => {
-    clearCart!();
-    navigate("/");
+    navigate("/thanks");
   };
 
   let { state } = useLocation();
@@ -39,6 +38,7 @@ const Confirm = () => {
   console.log(payment);
 
   return (
+    
     <div className="orderReviewContainer">
       <OrderStatus />
       <div className="userInfoContainer">
@@ -66,7 +66,7 @@ const Confirm = () => {
           <>
             <p>{payment.card_holder_name}</p>
             <p>Card Number : **** **** **** {payment.card_number[3]}</p>
-            <p>exp {payment.exp_date}</p>
+            <p>exp: 08 / 24</p>
           </>
         </div>
       </div>
